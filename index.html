@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ SEO: Primary meta tags -->
+  <title>StartupOnX India — Discover Indian Startups Building in Public</title>
+  <meta name="description" content="A curated directory of Indian startups. Submit yours for ₹149/month and get discovered by investors, users, and the founder community." />
+  <meta name="keywords" content="indian startups, startup directory india, discover startups, indian founders, startup listing india" />
+  <meta name="author" content="StartupOnX India" />
+  <link rel="canonical" href="https://startuponx.in/" />
+
+  <!-- ✅ SEO: Open Graph (WhatsApp, LinkedIn, Facebook previews) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://startuponx.in/" />
+  <meta property="og:title" content="StartupOnX India — Discover Indian Startups" />
+  <meta property="og:description" content="A curated directory of Indian startups. Submit yours for ₹149/month." />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
+  <meta property="og:site_name" content="StartupOnX India" />
+
+  <!-- ✅ SEO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@startuponx_in" />
+  <meta name="twitter:title" content="StartupOnX India — Discover Indian Startups" />
+  <meta name="twitter:description" content="A curated directory of Indian startups building in public." />
+  <meta name="twitter:image" content="https://startuponx.in/assets/og-image.png" />
+
+  <!-- ✅ SEO: Structured Data (Google rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "StartupOnX India",
+    "url": "https://startuponx.in",
+    "description": "A curated directory of Indian startups",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://startuponx.in/discover.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="StartupOnX India home">
+        <img src="logo.png" alt="StartupOnX India logo" width="26" height="26" />
+        startuponx.in
+      </a>
+      <div class="nav-links">
+        <a href="how-it-works.html">How it works</a>
+        <a href="discover.html">Discover</a>
+        <a href="submit.html" class="btn btn-primary">Submit startup</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="hero-eyebrow">
+      🇮🇳 <span>India's startup directory</span>
+    </div>
+    <h1>Discover startups<br /><em>built by Indian founders</em></h1>
+    <p>A curated, no-fluff directory of Indian startups building in public. Get listed for ₹149/month and reach founders, users, and investors.</p>
+    <div class="hero-actions">
+      <a href="discover.html" class="btn btn-primary">Browse startups</a>
+      <a href="submit.html" class="btn btn-secondary">Submit yours — ₹149/mo</a>
+    </div>
+    <p class="hero-stat">
+      First <strong>25 founders</strong> lock in ₹149/mo forever. After that, ₹299/mo.
+    </p>
+  </header>
+
+  <hr class="divider" />
+
+  <!-- STARTUP GRID (featured) -->
+  <main>
+    <section class="section" aria-labelledby="startups-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="startups-heading">Listed startups</h2>
+          <a href="discover.html" class="btn btn-secondary" style="font-size:13px;padding:6px 14px;">See all</a>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs" role="tablist" aria-label="Filter by category">
+          <button class="filter-tab active" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="filter-tab" role="tab" aria-selected="false" data-filter="ai">AI</button>
+          <button class="filter-tab" role="tab" aria-selected="false" data-filter="saas">SaaS</button>
+          <button class="filter-tab" role="tab" aria-selected="false" data-filter="fintech">Fintech</button>
+          <button class="filter-tab" role="tab" aria-selected="false" data-filter="developer-tools">Developer Tools</button>
+          <button class="filter-tab" role="tab" aria-selected="false" data-filter="marketing">Marketing</button>
+          <button class="filter-tab" role="tab" aria-selected="false" data-filter="other">Other</button>
+        </div>
+
+        <!-- Startup cards — add your startups here -->
+        <div class="startup-grid" id="startup-grid">
+
+          <!-- SAMPLE CARD 1 — replace or remove this -->
+          <article class="startup-card" data-category="saas">
+            <div class="card-top">
+              <div class="card-logo-placeholder" aria-hidden="true">V</div>
+              <div class="card-meta">
+                <div class="card-name">Vega</div>
+                <span class="card-category">SaaS</span>
+              </div>
+              <a href="#" class="card-visit" target="_blank" rel="noopener noreferrer" aria-label="Visit Vega website">Visit</a>
+            </div>
+            <p class="card-description">Gym community app for QR check-ins, tracking fitness streaks, and an interactive feed for members.</p>
+          </article>
+
+          <!-- SAMPLE CARD 2 — replace or remove this -->
+          <article class="startup-card" data-category="ai">
+            <div class="card-top">
+              <div class="card-logo-placeholder" aria-hidden="true">A</div>
+              <div class="card-meta">
+                <div class="card-name">AutoDM</div>
+                <span class="card-category">AI</span>
+              </div>
+              <a href="#" class="card-visit" target="_blank" rel="noopener noreferrer" aria-label="Visit AutoDM website">Visit</a>
+            </div>
+            <p class="card-description">AI-powered Instagram DM automation for creators and growing businesses.</p>
+          </article>
+
+          <!-- EMPTY STATE — shown when no startups match filter -->
+          <div class="empty-state" id="empty-state" style="display:none;" role="status">
+            <p>No startups in this category yet.</p>
+            <p>Be the first — <a href="submit.html" style="color:var(--black);text-decoration:underline;">submit yours</a>.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" aria-labelledby="how-heading">
+      <div class="how-inner">
+        <p class="how-label" id="how-heading">How it works</p>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-title">Submit your startup</div>
+            <p class="step-desc">Fill in your startup name, one-liner, category, website, and logo.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-title">Pay ₹149/month</div>
+            <p class="step-desc">Scan the UPI QR code and pay from any UPI app. No card needed.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-title">We review it</div>
+            <p class="step-desc">We verify payment and review your submission within 24 hours.</p>
+          </div>
+          <div class="how-step">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-title">Go live</div>
+            <p class="step-desc">Your startup appears in the directory and stays listed as long as you subscribe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section" role="complementary" aria-label="Call to action">
+      <h2>Ready to get<br />discovered?</h2>
+      <p>Join India's growing founder community. First 25 founders lock in ₹149/month forever.</p>
+      <a href="submit.html" class="btn btn-primary" style="font-size:15px;padding:12px 28px;">Submit your startup</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="logo.png" alt="" width="18" height="18" style="border-radius:4px;" aria-hidden="true" />
+        © <span id="year"></span> StartupOnX India
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="how-it-works.html">How it works</a>
+        <a href="discover.html">Discover</a>
+        <a href="submit.html">Submit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

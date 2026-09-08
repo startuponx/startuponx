@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ SEO -->
+  <title>Submit Your Startup — StartupOnX India</title>
+  <meta name="description" content="List your Indian startup on StartupOnX India for ₹149/month. Get discovered by investors, users, and fellow founders building in public." />
+  <meta name="keywords" content="submit startup india, list startup india, startup directory submission, get startup listed india" />
+  <link rel="canonical" href="https://startuponx.in/submit.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://startuponx.in/submit.html" />
+  <meta property="og:title" content="Submit Your Startup — StartupOnX India" />
+  <meta property="og:description" content="List your Indian startup for ₹149/month. Get discovered by investors and users." />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Submit Your Startup — StartupOnX India" />
+  <meta name="twitter:description" content="List your Indian startup for ₹149/month." />
+  <meta name="twitter:image" content="https://startuponx.in/assets/og-image.png" />
+
+  <!-- Prevent indexing of the thank-you state -->
+  <meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <style>
+    .success-banner {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .success-banner.visible { display: block; }
+    .success-banner h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .success-banner p { font-size: 14px; color: var(--muted); }
+
+    .required-star { color: #e05a4e; margin-left: 2px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="StartupOnX India home">
+        <img src="logo.png" alt="StartupOnX India logo" width="26" height="26" />
+        startuponx.in
+      </a>
+      <div class="nav-links">
+        <a href="how-it-works.html">How it works</a>
+        <a href="discover.html">Discover</a>
+        <a href="submit.html" class="btn btn-primary" aria-current="page">Submit startup</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Page hero -->
+    <div class="page-hero">
+      <h1>List your startup</h1>
+      <p>Fill in your details, pay ₹149/month via UPI, and we'll review your listing within 24 hours.</p>
+    </div>
+
+    <!-- Success banner (shown after form submit) -->
+    <div class="form-wrapper">
+      <div class="success-banner" id="success-banner" role="alert" aria-live="assertive">
+        <h2>✅ Submission received</h2>
+        <p>We've received your details and payment notification. We'll review and publish your listing within 24 hours. Check your email for confirmation.</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form class="form-wrapper" id="submit-form" novalidate>
+
+      <!-- Startup details -->
+      <p class="form-section-title">Your startup</p>
+
+      <div class="field">
+        <label for="startup-name">Startup name <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="startup-name"
+          name="startup_name"
+          placeholder="e.g. Vega"
+          required
+          maxlength="60"
+          autocomplete="organization"
+        />
+      </div>
+
+      <div class="field">
+        <label for="tagline">One-line description <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="tagline"
+          name="tagline"
+          placeholder="e.g. Gym app for QR check-ins and fitness streaks"
+          required
+          maxlength="100"
+        />
+        <p class="field-hint">Keep it under 100 characters. Plain and clear beats clever.</p>
+      </div>
+
+      <div class="field">
+        <label for="category">Category <span class="required-star" aria-hidden="true">*</span></label>
+        <select id="category" name="category" required>
+          <option value="" disabled selected>Select a category</option>
+          <option value="ai">AI</option>
+          <option value="saas">SaaS</option>
+          <option value="fintech">Fintech</option>
+          <option value="developer-tools">Developer Tools</option>
+          <option value="design">Design</option>
+          <option value="marketing">Marketing</option>
+          <option value="productivity">Productivity</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="website">Website URL <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="url"
+          id="website"
+          name="website"
+          placeholder="https://yourstartup.com"
+          required
+        />
+      </div>
+
+      <!-- Logo upload -->
+      <div class="field">
+        <label>Logo <span class="required-star" aria-hidden="true">*</span></label>
+        <label class="logo-upload" for="logo-input" id="logo-upload-label">
+          <input type="file" id="logo-input" name="logo" accept="image/png,image/jpeg,image/svg+xml,image/webp" />
+          <div class="logo-upload-icon" aria-hidden="true">🖼️</div>
+          <p class="logo-upload-text"><strong>Click to upload logo</strong><br />PNG, JPG or SVG · Max 2MB · Square preferred</p>
+        </label>
+        <p class="field-hint" id="logo-filename"></p>
+      </div>
+
+      <!-- Founder details -->
+      <p class="form-section-title">Your details</p>
+
+      <div class="field">
+        <label for="founder-name">Your name <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="founder-name"
+          name="founder_name"
+          placeholder="e.g. Rohan Mehta"
+          required
+          autocomplete="name"
+        />
+      </div>
+
+      <div class="field">
+        <label for="founder-email">Email address <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="email"
+          id="founder-email"
+          name="founder_email"
+          placeholder="you@yourstartup.com"
+          required
+          autocomplete="email"
+        />
+        <p class="field-hint">We'll send your listing confirmation here.</p>
+      </div>
+
+      <div class="field">
+        <label for="twitter">X (Twitter) handle</label>
+        <input
+          type="text"
+          id="twitter"
+          name="twitter_handle"
+          placeholder="@yourhandle"
+          maxlength="50"
+        />
+      </div>
+
+      <!-- Payment -->
+      <p class="form-section-title">Payment</p>
+
+      <div class="payment-box">
+        <div class="payment-price">₹149 <sub>/month</sub></div>
+        <p class="payment-tagline">First 25 founders lock in ₹149/mo forever</p>
+
+        <!-- 
+          REPLACE THIS: Put your actual UPI QR code image here.
+          Save your QR code as: assets/upi-qr.png
+          Then the line below will show it automatically.
+        -->
+        <div class="qr-placeholder" role="img" aria-label="UPI QR code for payment">
+          <img src="assets/upi-qr.png" alt="Scan to pay ₹149 via UPI" onerror="this.parentElement.innerHTML='Add your UPI QR<br/>as assets/upi-qr.png'" />
+        </div>
+
+        <p class="payment-instruction">
+          <strong>Step 1:</strong> Scan the QR code with any UPI app (GPay, PhonePe, Paytm).<br />
+          <strong>Step 2:</strong> Pay exactly <strong>₹149</strong>.<br />
+          <strong>Step 3:</strong> Enter your UPI transaction ID below and click submit.
+        </p>
+      </div>
+
+      <div class="field">
+        <label for="upi-txn">UPI Transaction ID <span class="required-star" aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="upi-txn"
+          name="upi_transaction_id"
+          placeholder="e.g. 402110663798"
+          required
+          maxlength="30"
+        />
+        <p class="field-hint">Found in your UPI app under payment history after you pay.</p>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything else you want to add?</label>
+        <textarea
+          id="notes"
+          name="notes"
+          placeholder="Any extra context about your startup (optional)"
+          maxlength="400"
+        ></textarea>
+      </div>
+
+      <div class="submit-btn-wrap">
+        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+          Submit &amp; notify payment
+        </button>
+        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px;">
+          By submitting you agree to our <a href="#" style="color:var(--black);">terms</a>. Listings go live within 24 hours after manual review.
+        </p>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="logo.png" alt="" width="18" height="18" style="border-radius:4px;" aria-hidden="true" />
+        © <span class="year"></span> StartupOnX India
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="how-it-works.html">How it works</a>
+        <a href="discover.html">Discover</a>
+        <a href="submit.html">Submit</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Logo upload preview
+    const logoInput = document.getElementById('logo-input');
+    const logoLabel = document.getElementById('logo-upload-label');
+    const logoFilename = document.getElementById('logo-filename');
+
+    logoInput.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        if (file.size > 2 * 1024 * 1024) {
+          logoFilename.textContent = '⚠️ File too large. Please upload under 2MB.';
+          logoFilename.style.color = '#e05a4e';
+          this.value = '';
+          return;
+        }
+        logoFilename.textContent = '✓ ' + file.name;
+        logoFilename.style.color = 'var(--black)';
+      }
+    });
+
+    // Form submission — sends data to Formspree (free email service)
+    // REPLACE 'YOUR_FORM_ID' with your actual Formspree form ID
+    // Sign up free at formspree.io, create a form, get your ID
+    const form = document.getElementById('submit-form');
+    const successBanner = document.getElementById('success-banner');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e05a4e';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      if (!valid) {
+        alert('Please fill in all required fields marked with *');
+        return;
+      }
+
+      submitBtn.textContent = 'Submitting...';
+      submitBtn.disabled = true;
+
+      // Option A: Use Formspree (easiest, free)
+      // 1. Go to formspree.io and create a free account
+      // 2. Create a new form
+      // 3. Replace YOUR_FORM_ID below with your actual form ID
+      const FORMSPREE_ID = 'xvkovbya';
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successBanner.classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        // Fallback: open email
+        const name = form.querySelector('#founder-name').value;
+        const email = form.querySelector('#founder-email').value;
+        const startup = form.querySelector('#startup-name').value;
+        const txn = form.querySelector('#upi-txn').value;
+
+        window.location.href = `mailto:hello@startuponx.in?subject=New Startup Submission: ${encodeURIComponent(startup)}&body=Founder: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AStartup: ${encodeURIComponent(startup)}%0AUPI TXN: ${encodeURIComponent(txn)}`;
+
+        submitBtn.textContent = 'Submit & notify payment';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
