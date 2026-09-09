@@ -138,7 +138,7 @@
             </div>
           </div>
           <span class="card-tag">${s.category}</span>
-          <a href="${s.website}" class="card-visit" target="_blank" rel="noopener noreferrer">Visit site</a>`;
+          <a href="${s.website.startsWith('http') ? s.website : 'https://' + s.website}" class="card-visit" target="_blank" rel="noopener noreferrer">Visit site</a>
         grid.insertBefore(card, empty);
       });
     } catch(e) {

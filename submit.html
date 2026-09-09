@@ -184,7 +184,8 @@
 
     const name = document.getElementById('company-name').value.trim();
     const desc = document.getElementById('description').value.trim();
-    const website = document.getElementById('website').value.trim();
+    let website = document.getElementById('website').value.trim();
+if (!website.startsWith('http')) website = 'https://' + website;
     const category = document.getElementById('category').value;
     const txn = document.getElementById('upi-txn').value.trim();
 
