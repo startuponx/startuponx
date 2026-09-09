@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,10 +6,10 @@
 
   <title>Contact — StartupOnX India</title>
 
-<meta
- name="description"
- content="Questions about your listing or a refund? Contact StartupOnX India."
-/>
+  <meta
+    name="description"
+    content="Questions about your listing or a refund? Contact StartupOnX India."
+  />
 
   <link rel="canonical" href="https://startuponx.com/contact.html" />
   <link rel="icon" type="image/png" href="logo.png" />
@@ -19,285 +18,228 @@
 
 <body>
 
-  <!-- Navigation -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">
+    startuponx<span>.in</span>
+  </a>
 
-  <nav class="nav">
-    <a href="index.html" class="nav-brand">
-      startuponx<span>.in</span>
-    </a>
-
-```
-<div class="nav-center">
-  <a href="about.html">About</a>
-  <a href="how-it-works.html">How it works</a>
-  <a href="contact.html" class="active">Contact</a>
-</div>
-
-<div class="nav-right" id="nav-auth">
-  <a href="signin.html" class="btn btn-black">Sign in</a>
-</div>
-```
-
-  </nav>
-
-  <!-- Main content -->
-
-  <main>
-    <div class="simple-page">
-
-```
-  <h1>Contact</h1>
-
-  <p class="page-sub">
-    Questions about a listing or a refund? Send a message.
-  </p>
-
-
-  <!-- Success / information message -->
-  <div
-    id="success"
-    style="
-      display:none;
-      background:var(--white);
-      border-radius:10px;
-      padding:20px;
-      font-size:14px;
-      color:var(--muted);
-    "
-  >
-    ✅ Your email app has been opened. Please press Send to send your message.
+  <div class="nav-center">
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="contact.html" class="active">Contact</a>
   </div>
 
+  <div class="nav-right" id="nav-auth">
+    <a href="signin.html" class="btn btn-black">Sign in</a>
+  </div>
+</nav>
 
-  <!-- Contact form -->
-  <form
-    class="contact-form"
-    id="contact-form"
-    novalidate
-  >
+<main>
+  <div class="simple-page">
 
-    <input
-      class="field-input"
-      type="email"
-      id="email"
-      placeholder="you@example.com"
-      required
-      autocomplete="email"
-    />
+    <h1>Contact</h1>
 
-    <textarea
-      class="field-input"
-      id="message"
-      placeholder="How can we help?"
-      required
-      rows="5"
-    ></textarea>
+    <p class="page-sub">
+      Questions about a listing or a refund? Send a message.
+    </p>
 
-    <button
-      type="submit"
-      class="btn btn-black"
-      style="align-self:flex-start"
-      id="send-btn"
+    <div
+      id="success"
+      style="
+        display:none;
+        background:var(--white);
+        border-radius:10px;
+        padding:20px;
+        font-size:14px;
+        color:var(--muted);
+      "
     >
-      Send message
-    </button>
+      ✅ Your email app has been opened. Please press Send to send your message.
+    </div>
 
-  </form>
+    <form
+      class="contact-form"
+      id="contact-form"
+      novalidate
+    >
 
-</div>
-```
+      <input
+        class="field-input"
+        type="email"
+        id="email"
+        placeholder="you@example.com"
+        required
+        autocomplete="email"
+      />
 
-  </main>
+      <textarea
+        class="field-input"
+        id="message"
+        placeholder="How can we help?"
+        required
+        rows="5"
+      ></textarea>
 
-  <!-- Footer -->
+      <button
+        type="submit"
+        class="btn btn-black"
+        style="align-self:flex-start"
+        id="send-btn"
+      >
+        Send message
+      </button>
 
-  <footer class="footer">
-    <div class="footer-inner">
+    </form>
 
-```
-  <div class="footer-left">
-    <img src="logo.png" alt="" aria-hidden="true" />
-    © <span class="yr"></span> StartupOnX India
   </div>
+</main>
 
-  <div class="footer-links">
-    <a href="blog.html">Blog</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
+<footer class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-left">
+      <img src="logo.png" alt="" aria-hidden="true" />
+      © <span class="yr"></span> StartupOnX India
+    </div>
+
+    <div class="footer-links">
+      <a href="blog.html">Blog</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+
   </div>
+</footer>
 
-</div>
-```
+<script type="module">
 
-  </footer>
-
-  <!-- JavaScript -->
-
-  <script type="module">
-
-    /*
-     * Firebase authentication
-     */
-    import {
-      onAuth,
-      signOutUser
-    } from './js/firebase.js';
+  import {
+    onAuth,
+    signOutUser
+  } from './js/firebase.js';
 
 
-    /*
-     * Current year
-     */
-    document.querySelectorAll('.yr').forEach(el => {
-      el.textContent = new Date().getFullYear();
-    });
+  document.querySelectorAll('.yr').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
 
 
-    /*
-     * Navigation authentication state
-     */
-    onAuth(user => {
+  onAuth(user => {
 
-      const nav = document.getElementById('nav-auth');
+    const nav = document.getElementById('nav-auth');
 
-      if (!nav) return;
+    if (!nav) return;
 
+    if (user) {
 
-      if (user) {
+      nav.innerHTML = `
+        <a href="my-listings.html" class="btn btn-outline">
+          My listings
+        </a>
 
-        nav.innerHTML = `
-          <a href="my-listings.html" class="btn btn-outline">
-            My listings
-          </a>
+        <button
+          class="btn btn-black"
+          id="so"
+          type="button"
+        >
+          Sign out
+        </button>
+      `;
 
-          <button
-            class="btn btn-black"
-            id="so"
-            type="button"
-          >
-            Sign out
-          </button>
-        `;
+      const signOutButton = document.getElementById('so');
 
-
-        const signOutButton = document.getElementById('so');
-
-        if (signOutButton) {
-          signOutButton.addEventListener('click', async () => {
-            try {
-              await signOutUser();
-            } catch (error) {
-              console.error('Sign out error:', error);
-              alert('Could not sign out. Please try again.');
-            }
-          });
-        }
-
-      } else {
-
-        nav.innerHTML = `
-          <a href="signin.html" class="btn btn-black">
-            Sign in
-          </a>
-        `;
-
+      if (signOutButton) {
+        signOutButton.addEventListener('click', async () => {
+          try {
+            await signOutUser();
+          } catch (error) {
+            console.error('Sign out error:', error);
+            alert('Could not sign out. Please try again.');
+          }
+        });
       }
 
-    });
+    } else {
 
-
-    /*
-     * Contact form
-     */
-    const contactForm = document.getElementById('contact-form');
-
-    if (contactForm) {
-
-      contactForm.addEventListener('submit', function (e) {
-
-        e.preventDefault();
-
-
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        const success = document.getElementById('success');
-
-
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-
-
-        /*
-         * Check required fields
-         */
-        if (!email || !message) {
-          alert('Please fill in both fields.');
-          return;
-        }
-
-
-        /*
-         * Basic email validation
-         */
-        const emailPattern =
-          /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(email)) {
-          alert('Please enter a valid email address.');
-          emailInput.focus();
-          return;
-        }
-
-
-        /*
-         * Prepare email
-         */
-        const subject =
-          encodeURIComponent(
-            'Message from StartupOnX — ' + email
-          );
-
-        const body =
-          encodeURIComponent(
-            message +
-            '\n\n' +
-            'From: ' + email
-          );
-
-
-        /*
-         * Open the visitor's default email application.
-         *
-         * This does NOT automatically send the email.
-         * The visitor must press Send in their email app.
-         */
-        const mailto =
-          'mailto:startuponx@gmail.com' +
-          '?subject=' + subject +
-          '&body=' + body;
-
-
-        window.location.href = mailto;
-
-
-        /*
-         * Change the page message after opening
-         * the email application.
-         */
-        setTimeout(() => {
-
-          contactForm.style.display = 'none';
-
-          if (success) {
-            success.style.display = 'block';
-          }
-
-        }, 500);
-
-      });
+      nav.innerHTML = `
+        <a href="signin.html" class="btn btn-black">
+          Sign in
+        </a>
+      `;
 
     }
 
-  </script>
+  });
+
+
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+
+    contactForm.addEventListener('submit', function(e) {
+
+      e.preventDefault();
+
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+      const success = document.getElementById('success');
+
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+
+      if (!email || !message) {
+        alert('Please fill in both fields.');
+        return;
+      }
+
+
+      const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        emailInput.focus();
+        return;
+      }
+
+
+      const subject = encodeURIComponent(
+        'Message from StartupOnX — ' + email
+      );
+
+
+      const body = encodeURIComponent(
+        message +
+        '\n\nFrom: ' +
+        email
+      );
+
+
+      const mailto =
+        'mailto:startuponx@gmail.com' +
+        '?subject=' + subject +
+        '&body=' + body;
+
+
+      window.location.href = mailto;
+
+
+      setTimeout(() => {
+
+        contactForm.style.display = 'none';
+
+        if (success) {
+          success.style.display = 'block';
+        }
+
+      }, 500);
+
+    });
+
+  }
+
+</script>
 
 </body>
 </html>
