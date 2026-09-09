@@ -45,27 +45,32 @@
   document.querySelectorAll('.yr').forEach(el => el.textContent = new Date().getFullYear());
   onAuth(user => {
     const nav = document.getElementById('nav-auth');
-    if (user) { nav.innerHTML = `<a href="my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`; document.getElementById('so').onclick = () => signOutUser(); }
-    else { nav.innerHTML = `<a href="signin.html" class="btn btn-black">Sign in</a>`; }
+    if (user) {
+      nav.innerHTML = `<a href="my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`;
+      document.getElementById('so').onclick = () => signOutUser();
+    } else {
+      nav.innerHTML = `<a href="signin.html" class="btn btn-black">Sign in</a>`;
+    }
   });
 
-  // Contact form — uses Formspree (free). Replace YOUR_ID with your Formspree form ID.
-  // Sign up free at formspree.io → create form → copy ID
-  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
-
-  document.getElementById('contact-form').addEventListener('submit', async e => {
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const btn = document.getElementById('send-btn');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: document.getElementById('email').value, message: document.getElementById('message').value })
-      });
-      if (res.ok) { document.getElementById('contact-form').style.display = 'none'; document.getElementById('success').style.display = 'block'; }
-      else throw new Error();
-    } catch { btn.textContent = 'Send message'; btn.disabled = false; alert('Failed. Email us at hello@startuponx.com'); }
+    var email   = document.getElementById('email').value.trim();
+    var message = document.getElementById('message').value.trim();
+
+    if (!email || !message) {
+      alert('Please fill in both fields.');
+      return;
+    }
+
+    // Opens Gmail/mail app directly — no Formspree needed
+    var subject = encodeURIComponent('Message from ' + email);
+    var body    = encodeURIComponent(message + '\n\nFrom: ' + email);
+    window.location.href = 'mailto:startuponx@gmail.com?subject=' + subject + '&body=' + body;
+
+    // Show success
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
   });
 </script>
 </body>
