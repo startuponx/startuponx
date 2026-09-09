@@ -42,7 +42,7 @@
     <a href="submit.html" class="btn btn-black">Get listed</a>
     <span class="hero-lock">First 25 lock in ₹149/mo. After that, ₹299/mo.</span>
   </div>
-  <p class="hero-live" id="live-count">Loading...</p>
+  <p class="hero-live" id="live-count"></p>
   <div class="hero-annotation" aria-hidden="true">
     <svg width="80" height="32" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M72 6 C52 2, 16 10, 4 26" stroke="#1d6aff" stroke-width="1.8" stroke-dasharray="5 4" fill="none" stroke-linecap="round"/>
@@ -63,7 +63,9 @@
   <button class="filter-tab" data-filter="productivity">Productivity</button>
   <button class="filter-tab" data-filter="other">Other</button>
   <div class="search-wrap">
-    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
     <input type="search" class="search-input" id="search" placeholder="Search startups..." aria-label="Search startups" />
   </div>
 </div>
@@ -71,14 +73,19 @@
 <main>
   <div class="grid-wrap">
     <div class="startup-grid" id="grid">
-      <div class="empty-state" id="empty" style="display:none">No startups match. <a href="submit.html" style="color:var(--black);text-decoration:underline">Be the first.</a></div>
+      <div class="empty-state" id="empty" style="display:none">
+        No startups yet. <a href="submit.html" style="color:var(--black);text-decoration:underline">Be the first.</a>
+      </div>
     </div>
   </div>
 </main>
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-left"><img src="logo.png" alt="" aria-hidden="true" /> © <span id="yr"></span> StartupOnX India</div>
+    <div class="footer-left">
+      <img src="logo.png" alt="" aria-hidden="true" />
+      © <span id="yr"></span> StartupOnX India
+    </div>
     <div class="footer-links">
       <a href="about.html">About</a>
       <a href="blog.html">Blog</a>
@@ -89,93 +96,149 @@
 </footer>
 
 <script type="module">
-  import { onAuth, signOutUser, getLiveStartups } from './js/firebase.js';
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, signOut, onAuthStateChanged }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, collection, query, where, getDocs }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+  // ▼▼ PASTE YOUR FIREBASE CONFIG HERE (same as firebase.js) ▼▼
+ const firebaseConfig = {
+  apiKey: "AIzaSyBo0znzdeRwlclOvrSouUzRja4yFHUu6Tc",
+  authDomain: "startuponx-e228c.firebaseapp.com",
+  projectId: "startuponx-e228c",
+  storageBucket: "startuponx-e228c.firebasestorage.app",
+  messagingSenderId: "333136775467",
+  appId: "1:333136775467:web:30ccb507b40a13b1cc9d6e",
+  measurementId: "G-9MJEJT5ELL"
+};
+  // ▲▲ END CONFIG ▲▲
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db   = getFirestore(app);
+
+  // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Nav: show My listings + Sign out when logged in
-  onAuth(user => {
-    const navAuth = document.getElementById('nav-auth');
+  // ── Nav: update based on auth state ──────────────────────
+  onAuthStateChanged(auth, function(user) {
+    var navAuth = document.getElementById('nav-auth');
     if (user) {
-      navAuth.innerHTML = `
-        <a href="my-listings.html" class="btn btn-outline">My listings</a>
-        <button class="btn btn-black" id="signout-btn">Sign out</button>`;
-      document.getElementById('signout-btn').onclick = () => signOutUser();
+      navAuth.innerHTML =
+        '<a href="my-listings.html" class="btn btn-outline">My listings</a>' +
+        '<button class="btn btn-black" id="signout-btn">Sign out</button>';
+      document.getElementById('signout-btn').addEventListener('click', function() {
+        signOut(auth);
+      });
     } else {
-      navAuth.innerHTML = `<a href="signin.html" class="btn btn-black">Sign in</a>`;
+      navAuth.innerHTML = '<a href="signin.html" class="btn btn-black">Sign in</a>';
     }
   });
 
-  // Load startups from Firestore
+  // ── Load live startups ────────────────────────────────────
   async function loadStartups() {
-    const grid = document.getElementById('grid');
-    const empty = document.getElementById('empty');
-    const countEl = document.getElementById('live-count');
+    var grid    = document.getElementById('grid');
+    var empty   = document.getElementById('empty');
+    var countEl = document.getElementById('live-count');
 
     try {
-      const startups = await getLiveStartups();
-      countEl.textContent = startups.length + ' startup' + (startups.length !== 1 ? 's' : '') + ' live';
+      var q    = query(collection(db, 'startups'), where('status', '==', 'live'));
+      var snap = await getDocs(q);
+      var startups = [];
+      snap.forEach(function(doc) {
+        startups.push(Object.assign({ id: doc.id }, doc.data()));
+      });
 
-      if (startups.length === 0) {
+      var n = startups.length;
+      countEl.textContent = n + ' startup' + (n !== 1 ? 's' : '') + ' live';
+
+      if (n === 0) {
         empty.style.display = 'block';
         return;
       }
 
-      startups.forEach(s => {
-        const card = document.createElement('article');
+      startups.forEach(function(s) {
+        // Safely get website URL
+        var rawUrl  = s.website || s.url || '';
+        var siteUrl = rawUrl.startsWith('http') ? rawUrl : 'https://' + rawUrl;
+
+        // Logo: image if stored, otherwise first letter
+        var logoHtml = s.logoUrl
+          ? '<img class="card-logo" src="' + s.logoUrl + '" alt="' + (s.name || '') + ' logo" width="52" height="52" />'
+          : '<div class="card-logo-letter" aria-hidden="true">' + (s.name || '?')[0].toUpperCase() + '</div>';
+
+        // Description field (handles both 'desc' and 'description' field names)
+        var descText = s.desc || s.description || '';
+
+        // Category display
+        var catRaw  = s.category || 'other';
+        var catSlug = catRaw.toLowerCase().replace(/\s+/g, '-');
+        var catDisplay = catRaw.charAt(0).toUpperCase() + catRaw.slice(1);
+
+        var card = document.createElement('article');
         card.className = 'startup-card';
-        card.dataset.category = s.category || 'other';
+        card.dataset.category = catSlug;
         card.dataset.name = (s.name || '').toLowerCase();
-        const logoHtml = s.logoUrl
-          ? `<img class="card-logo" src="${s.logoUrl}" alt="${s.name} logo" width="52" height="52" />`
-          : `<div class="card-logo-letter" aria-hidden="true">${(s.name||'?')[0].toUpperCase()}</div>`;
-        card.innerHTML = `
-          <div class="card-header">
-            ${logoHtml}
-            <div class="card-info">
-              <div class="card-name">${s.name}</div>
-              <p class="card-desc">${s.description}</p>
-            </div>
-          </div>
-          <span class="card-tag">${s.category}</span>
-          <a href="${s.website.startsWith('http') ? s.website : 'https://' + s.website}" class="card-visit" target="_blank" rel="noopener noreferrer">Visit site</a>
+
+        card.innerHTML =
+          '<div class="card-header">' +
+            logoHtml +
+            '<div class="card-info">' +
+              '<div class="card-name">' + (s.name || '') + '</div>' +
+              '<p class="card-desc">' + descText + '</p>' +
+            '</div>' +
+          '</div>' +
+          '<span class="card-tag">' + catDisplay + '</span>' +
+          '<a href="' + siteUrl + '" class="card-visit" target="_blank" rel="noopener noreferrer">Visit site</a>';
+
         grid.insertBefore(card, empty);
       });
-    } catch(e) {
-      // Firebase not configured yet — show placeholder cards
-      countEl.textContent = '0 startups live';
+
+    } catch (err) {
+      console.error('Firestore load error:', err);
+      countEl.textContent = '';
       empty.style.display = 'block';
-      empty.innerHTML = 'Connect Firebase to load startups. <a href="submit.html" style="color:var(--black);text-decoration:underline">Submit yours.</a>';
+      empty.innerHTML = 'Could not load startups. <a href="submit.html" style="color:var(--black);text-decoration:underline">Submit yours.</a>';
     }
   }
 
   loadStartups();
 
-  // Filter + search
-  const tabs = document.querySelectorAll('.filter-tab');
-  const searchInput = document.getElementById('search');
+  // ── Filter + Search ───────────────────────────────────────
+  var tabs        = document.querySelectorAll('.filter-tab');
+  var searchInput = document.getElementById('search');
 
   function applyFilters() {
-    const active = document.querySelector('.filter-tab.active')?.dataset.filter || 'all';
-    const q = searchInput.value.trim().toLowerCase();
-    const cards = document.querySelectorAll('.startup-card');
-    let visible = 0;
-    cards.forEach(c => {
-      const matchCat = active === 'all' || c.dataset.category === active;
-      const matchQ = !q || c.dataset.name.includes(q) || c.querySelector('.card-desc')?.textContent.toLowerCase().includes(q);
-      c.style.display = matchCat && matchQ ? '' : 'none';
-      if (matchCat && matchQ) visible++;
+    var active = (document.querySelector('.filter-tab.active') || {}).dataset || {};
+    var filter = active.filter || 'all';
+    var q      = searchInput.value.trim().toLowerCase();
+    var cards  = document.querySelectorAll('.startup-card');
+    var visible = 0;
+
+    cards.forEach(function(c) {
+      var matchCat  = filter === 'all' || c.dataset.category === filter;
+      var descEl    = c.querySelector('.card-desc');
+      var descText  = descEl ? descEl.textContent.toLowerCase() : '';
+      var matchSearch = !q || c.dataset.name.includes(q) || descText.includes(q);
+      var show = matchCat && matchSearch;
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
     });
+
     document.getElementById('empty').style.display = visible === 0 ? 'block' : 'none';
   }
 
-  tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x => { x.classList.remove('active'); });
-    t.classList.add('active');
-    applyFilters();
-  }));
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      applyFilters();
+    });
+  });
 
   searchInput.addEventListener('input', applyFilters);
 </script>
+
 </body>
 </html>
