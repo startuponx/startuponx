@@ -19,6 +19,35 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"StartupOnX India","url":"https://startuponx.in","description":"A curated directory of Indian startups","potentialAction":{"@type":"SearchAction","target":"https://startuponx.in/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Annotation — arrow LEFT of text, both on right side of page */
+    .hero-annotation {
+      position: absolute;
+      top: 48px;
+      right: 40px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .annotation-arrow {
+      flex-shrink: 0;
+    }
+    .annotation-text {
+      transform: rotate(-8deg);
+      font-size: 20px;
+      font-weight: 700;
+      color: #1d6aff;
+      font-style: italic;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    @media (max-width: 700px) {
+      .hero-annotation { display: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,13 +72,25 @@
     <span class="hero-lock">First 25 lock in ₹149/mo. After that, ₹299/mo.</span>
   </div>
   <p class="hero-live" id="live-count"></p>
+
+  <!-- Arrow on LEFT of text, both sitting on right side of page -->
   <div class="hero-annotation" aria-hidden="true">
-  <p class="annotation-text">One-fifty.<br/>Stay listed.</p>
-  <svg viewBox="0 0 180 80" fill="none" style="width:140px;height:56px;display:block;margin-top:4px;color:#1d6aff;">
-    <path d="M172 50 C118 18, 64 16, 30 40" stroke="currentColor" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="butt"/>
-    <path d="M42 29 L26 40 L42 51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-14 26 40)"/>
-  </svg>
-</div>
+    <!-- Arrow: curves from right-to-left, tip points LEFT toward ₹149 -->
+    <svg class="annotation-arrow" viewBox="0 0 120 60" fill="none"
+         style="width:110px;height:50px;color:#1d6aff;"
+         xmlns="http://www.w3.org/2000/svg">
+      <!-- Dashed curve: starts top-right, ends bottom-left -->
+      <path d="M115 8 C85 4, 35 22, 8 48"
+            stroke="currentColor" stroke-width="2"
+            stroke-dasharray="4 6" stroke-linecap="round" fill="none"/>
+      <!-- Arrowhead pointing bottom-left -->
+      <path d="M8 48 L18 40 M8 48 L16 56"
+            stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <!-- Text on the RIGHT of the arrow -->
+    <p class="annotation-text">One-fifty.<br/>Stay listed.</p>
+  </div>
 </header>
 
 <div class="filter-bar" role="toolbar">
@@ -102,26 +143,23 @@
   import { getFirestore, collection, query, where, getDocs }
     from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  // ▼▼ PASTE YOUR FIREBASE CONFIG HERE (same as firebase.js) ▼▼
- const firebaseConfig = {
-  apiKey: "AIzaSyBo0znzdeRwlclOvrSouUzRja4yFHUu6Tc",
-  authDomain: "startuponx-e228c.firebaseapp.com",
-  projectId: "startuponx-e228c",
-  storageBucket: "startuponx-e228c.firebasestorage.app",
-  messagingSenderId: "333136775467",
-  appId: "1:333136775467:web:30ccb507b40a13b1cc9d6e",
-  measurementId: "G-9MJEJT5ELL"
-};
-  // ▲▲ END CONFIG ▲▲
+  const firebaseConfig = {
+    apiKey: "AIzaSyBo0znzdeRwlclOvrSouUzRja4yFHUu6Tc",
+    authDomain: "startuponx-e228c.firebaseapp.com",
+    projectId: "startuponx-e228c",
+    storageBucket: "startuponx-e228c.firebasestorage.app",
+    messagingSenderId: "333136775467",
+    appId: "1:333136775467:web:30ccb507b40a13b1cc9d6e",
+    measurementId: "G-9MJEJT5ELL"
+  };
 
   const app  = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db   = getFirestore(app);
 
-  // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // ── Nav: update based on auth state ──────────────────────
+  // Nav auth state
   onAuthStateChanged(auth, function(user) {
     var navAuth = document.getElementById('nav-auth');
     if (user) {
@@ -136,7 +174,7 @@
     }
   });
 
-  // ── Load live startups ────────────────────────────────────
+  // Load live startups
   async function loadStartups() {
     var grid    = document.getElementById('grid');
     var empty   = document.getElementById('empty');
@@ -153,34 +191,25 @@
       var n = startups.length;
       countEl.textContent = n + ' startup' + (n !== 1 ? 's' : '') + ' live';
 
-      if (n === 0) {
-        empty.style.display = 'block';
-        return;
-      }
+      if (n === 0) { empty.style.display = 'block'; return; }
 
       startups.forEach(function(s) {
-        // Safely get website URL
         var rawUrl  = s.website || s.url || '';
         var siteUrl = rawUrl.startsWith('http') ? rawUrl : 'https://' + rawUrl;
 
-        // Logo: image if stored, otherwise first letter
         var logoHtml = s.logoUrl
           ? '<img class="card-logo" src="' + s.logoUrl + '" alt="' + (s.name || '') + ' logo" width="52" height="52" />'
           : '<div class="card-logo-letter" aria-hidden="true">' + (s.name || '?')[0].toUpperCase() + '</div>';
 
-        // Description field (handles both 'desc' and 'description' field names)
-        var descText = s.desc || s.description || '';
-
-        // Category display
-        var catRaw  = s.category || 'other';
-        var catSlug = catRaw.toLowerCase().replace(/\s+/g, '-');
+        var descText   = s.desc || s.description || '';
+        var catRaw     = s.category || 'other';
+        var catSlug    = catRaw.toLowerCase().replace(/\s+/g, '-');
         var catDisplay = catRaw.charAt(0).toUpperCase() + catRaw.slice(1);
 
         var card = document.createElement('article');
         card.className = 'startup-card';
         card.dataset.category = catSlug;
         card.dataset.name = (s.name || '').toLowerCase();
-
         card.innerHTML =
           '<div class="card-header">' +
             logoHtml +
@@ -205,23 +234,23 @@
 
   loadStartups();
 
-  // ── Filter + Search ───────────────────────────────────────
+  // Filter + Search
   var tabs        = document.querySelectorAll('.filter-tab');
   var searchInput = document.getElementById('search');
 
   function applyFilters() {
-    var active = (document.querySelector('.filter-tab.active') || {}).dataset || {};
-    var filter = active.filter || 'all';
-    var q      = searchInput.value.trim().toLowerCase();
-    var cards  = document.querySelectorAll('.startup-card');
+    var active  = (document.querySelector('.filter-tab.active') || {}).dataset || {};
+    var filter  = active.filter || 'all';
+    var q       = searchInput.value.trim().toLowerCase();
+    var cards   = document.querySelectorAll('.startup-card');
     var visible = 0;
 
     cards.forEach(function(c) {
-      var matchCat  = filter === 'all' || c.dataset.category === filter;
-      var descEl    = c.querySelector('.card-desc');
-      var descText  = descEl ? descEl.textContent.toLowerCase() : '';
+      var matchCat    = filter === 'all' || c.dataset.category === filter;
+      var descEl      = c.querySelector('.card-desc');
+      var descText    = descEl ? descEl.textContent.toLowerCase() : '';
       var matchSearch = !q || c.dataset.name.includes(q) || descText.includes(q);
-      var show = matchCat && matchSearch;
+      var show        = matchCat && matchSearch;
       c.style.display = show ? '' : 'none';
       if (show) visible++;
     });
