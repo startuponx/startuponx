@@ -4,193 +4,644 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✅ SEO: Primary meta tags -->
-  <title>StartupOnX India — Discover Indian Startups Building in Public</title>
+  <title>StartupOnX India — Submit your startup ₹149/mo</title>
   <meta name="description" content="A curated directory of Indian startups. Submit yours for ₹149/month and get discovered by investors, users, and the founder community." />
   <meta name="keywords" content="indian startups, startup directory india, discover startups, indian founders, startup listing india" />
   <meta name="author" content="StartupOnX India" />
-  <link rel="canonical" href="https://startuponx.com/" />
+  <link rel="canonical" href="https://startuponx.in/" />
 
-  <!-- ✅ SEO: Open Graph (WhatsApp, LinkedIn, Facebook previews) -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://startuponx.com/" />
-  <meta property="og:title" content="StartupOnX India — Discover Indian Startups" />
+  <meta property="og:url" content="https://startuponx.in/" />
+  <meta property="og:title" content="StartupOnX India — Submit your startup ₹149/mo" />
   <meta property="og:description" content="A curated directory of Indian startups. Submit yours for ₹149/month." />
-  <meta property="og:image" content="https://startuponx.com/assets/og-image.png" />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
   <meta property="og:site_name" content="StartupOnX India" />
 
-  <!-- ✅ SEO: Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@startuponx_in" />
-  <meta name="twitter:title" content="StartupOnX India — Discover Indian Startups" />
+  <meta name="twitter:title" content="StartupOnX India — Submit your startup ₹149/mo" />
   <meta name="twitter:description" content="A curated directory of Indian startups building in public." />
-  <meta name="twitter:image" content="https://startuponx.com/assets/og-image.png" />
+  <meta name="twitter:image" content="https://startuponx.in/assets/og-image.png" />
 
-  <!-- ✅ SEO: Structured Data (Google rich results) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "StartupOnX India",
-    "url": "https://startuponx.com",
+    "url": "https://startuponx.in",
     "description": "A curated directory of Indian startups",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://startuponx.com/discover.html?q={search_term_string}",
+      "target": "https://startuponx.in/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   }
   </script>
 
-  <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #f0ede6;
+      --white:   #ffffff;
+      --black:   #0f0f0f;
+      --muted:   #888;
+      --border:  #e2dfd8;
+      --blue:    #1d6aff;
+      --card-bg: #ffffff;
+      --radius:  16px;
+      --max-w:   1160px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .nav-brand {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--black);
+    }
+
+    .nav-brand span {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--black);
+      font-weight: 400;
+    }
+
+    .nav-links a:hover { text-decoration: underline; }
+
+    .btn-signin {
+      background: var(--black);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity .15s;
+    }
+
+    .btn-signin:hover { opacity: .8; text-decoration: none !important; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 40px 32px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .hero-price {
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--blue);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-getlisted {
+      background: var(--black);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+
+    .btn-getlisted:hover { opacity: .8; }
+
+    .hero-lock {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .hero-live-count {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+
+    /* Annotation (the curved text top-right) */
+    .hero-annotation {
+      position: absolute;
+      top: 56px;
+      right: 40px;
+      text-align: center;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-annotation svg {
+      display: block;
+      margin: 0 auto 4px;
+    }
+
+    .hero-annotation-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1.3;
+      font-style: italic;
+    }
+
+    /* ── FILTER + SEARCH ROW ── */
+    .filter-row {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .filter-tab {
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 500;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      color: var(--black);
+      cursor: pointer;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+
+    .filter-tab:hover { border-color: #999; }
+
+    .filter-tab.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .search-wrap {
+      margin-left: auto;
+      position: relative;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 8px 16px 8px 36px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: var(--black);
+      outline: none;
+      width: 200px;
+      transition: border-color .15s;
+    }
+
+    .search-input:focus { border-color: var(--black); }
+    .search-input::placeholder { color: var(--muted); }
+
+    /* ── STARTUP GRID ── */
+    .grid-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px 64px;
+    }
+
+    .startup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .startup-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-annotation { display: none; }
+    }
+
+    @media (max-width: 580px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 32px 20px 24px; }
+      .filter-row { padding: 0 20px; }
+      .grid-wrap { padding: 0 20px 48px; }
+      .startup-grid { grid-template-columns: 1fr; }
+      .nav-links li:not(:last-child) { display: none; }
+      .search-wrap { margin-left: 0; width: 100%; }
+      .search-input { width: 100%; }
+    }
+
+    /* Card */
+    .startup-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: box-shadow .15s;
+    }
+
+    .startup-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .card-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: #f4f4f4;
+    }
+
+    .card-logo-letter {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card-info { flex: 1; min-width: 0; }
+
+    .card-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2px 9px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .card-visit-btn {
+      display: block;
+      width: 100%;
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 11px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: opacity .15s;
+      margin-top: auto;
+    }
+
+    .card-visit-btn:hover { opacity: .8; }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 64px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 40px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-left img {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover { color: var(--black); }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="StartupOnX India home">
-        <img src="logo.png" alt="StartupOnX India logo" width="26" height="26" />
-        startuponx.com
-      </a>
-      <div class="nav-links">
-        <a href="how-it-works.html">How it works</a>
-        <a href="discover.html">Discover</a>
-        <a href="submit.html" class="btn btn-primary">Submit startup</a>
-      </div>
-    </div>
+    <a href="index.html" class="nav-brand" aria-label="StartupOnX India">
+      startuponx<span>.in</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="how-it-works.html">About</a></li>
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="mailto:hello@startuponx.in">Contact</a></li>
+      <li><a href="submit.html" class="btn-signin">Get listed</a></li>
+    </ul>
   </nav>
 
   <!-- HERO -->
-  <header class="hero" role="banner">
-    <div class="hero-eyebrow">
-      🇮🇳 <span>India's startup directory</span>
+  <header class="hero">
+    <h1>Submit your startup</h1>
+    <div class="hero-price">₹149/mo</div>
+    <p class="hero-sub">For founders building and sharing their startups on X 🇮🇳</p>
+
+    <div class="hero-cta-row">
+      <a href="submit.html" class="btn-getlisted">Get listed</a>
+      <span class="hero-lock">First 25 lock in ₹149/mo. After that, ₹299/mo.</span>
     </div>
-    <h1>Discover startups<br /><em>built by Indian founders</em></h1>
-    <p>A curated, no-fluff directory of Indian startups building in public. Get listed for ₹149/month and reach founders, users, and investors.</p>
-    <div class="hero-actions">
-      <a href="discover.html" class="btn btn-primary">Browse startups</a>
-      <a href="submit.html" class="btn btn-secondary">Submit yours — ₹149/mo</a>
+
+    <p class="hero-live-count" id="live-count">0 startups live</p>
+
+    <!-- Annotation (decorative, matches the screenshot style) -->
+    <div class="hero-annotation" aria-hidden="true">
+      <svg width="90" height="36" viewBox="0 0 90 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 8 C60 4, 20 10, 4 28" stroke="#1d6aff" stroke-width="1.8" stroke-dasharray="5 4" fill="none" stroke-linecap="round"/>
+        <path d="M4 28 L10 22 M4 28 L12 30" stroke="#1d6aff" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div class="hero-annotation-text">One-fifty.<br />Stay listed.</div>
     </div>
-    <p class="hero-stat">
-      First <strong>25 founders</strong> lock in ₹149/mo forever. After that, ₹299/mo.
-    </p>
   </header>
 
-  <hr class="divider" />
+  <!-- FILTER ROW -->
+  <div class="filter-row" role="toolbar" aria-label="Filter and search">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="ai">AI</button>
+    <button class="filter-tab" data-filter="developer-tools">Developer Tools</button>
+    <button class="filter-tab" data-filter="design">Design</button>
+    <button class="filter-tab" data-filter="saas">SaaS</button>
+    <button class="filter-tab" data-filter="marketing">Marketing</button>
+    <button class="filter-tab" data-filter="fintech">Fintech</button>
+    <button class="filter-tab" data-filter="productivity">Productivity</button>
+    <button class="filter-tab" data-filter="other">Other</button>
 
-  <!-- STARTUP GRID (featured) -->
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input
+        type="search"
+        class="search-input"
+        id="search-input"
+        placeholder="Search startups..."
+        aria-label="Search startups"
+      />
+    </div>
+  </div>
+
+  <!-- STARTUP GRID -->
   <main>
-    <section class="section" aria-labelledby="startups-heading">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title" id="startups-heading">Listed startups</h2>
-          <a href="discover.html" class="btn btn-secondary" style="font-size:13px;padding:6px 14px;">See all</a>
-        </div>
+    <div class="grid-wrap">
+      <div class="startup-grid" id="startup-grid">
 
-        <!-- Filter tabs -->
-        <div class="filter-tabs" role="tablist" aria-label="Filter by category">
-          <button class="filter-tab active" role="tab" aria-selected="true" data-filter="all">All</button>
-          <button class="filter-tab" role="tab" aria-selected="false" data-filter="ai">AI</button>
-          <button class="filter-tab" role="tab" aria-selected="false" data-filter="saas">SaaS</button>
-          <button class="filter-tab" role="tab" aria-selected="false" data-filter="fintech">Fintech</button>
-          <button class="filter-tab" role="tab" aria-selected="false" data-filter="developer-tools">Developer Tools</button>
-          <button class="filter-tab" role="tab" aria-selected="false" data-filter="marketing">Marketing</button>
-          <button class="filter-tab" role="tab" aria-selected="false" data-filter="other">Other</button>
-        </div>
+        <!--
+          ═══════════════════════════════════════════
+          HOW TO ADD A NEW STARTUP:
+          Copy one <article> block below, paste it
+          at the top of this grid, and fill in:
+            - data-category (ai / saas / fintech /
+              developer-tools / design / marketing /
+              productivity / other)
+            - data-name  (startup name for search)
+            - card-logo-letter  (first letter OR swap
+              for <img class="card-logo" src="..." />)
+            - card-name, card-desc, href on Visit site
+            - card-tag text (the category label shown)
+          ═══════════════════════════════════════════
+        -->
 
-        <!-- Startup cards — add your startups here -->
-        <div class="startup-grid" id="startup-grid">
-
-          <!-- SAMPLE CARD 1 — replace or remove this -->
-          <article class="startup-card" data-category="saas">
-            <div class="card-top">
-              <div class="card-logo-placeholder" aria-hidden="true">V</div>
-              <div class="card-meta">
-                <div class="card-name">Vega</div>
-                <span class="card-category">SaaS</span>
-              </div>
-              <a href="#" class="card-visit" target="_blank" rel="noopener noreferrer" aria-label="Visit Vega website">Visit</a>
+        <!-- SAMPLE 1 -->
+        <article class="startup-card" data-category="saas" data-name="Vega">
+          <div class="card-header">
+            <div class="card-logo-letter" aria-hidden="true">V</div>
+            <div class="card-info">
+              <div class="card-name">Vega</div>
+              <p class="card-desc">Gym community app for QR check-ins, tracking fitness streaks, interactive...</p>
             </div>
-            <p class="card-description">Gym community app for QR check-ins, tracking fitness streaks, and an interactive feed for members.</p>
-          </article>
+          </div>
+          <span class="card-tag">SaaS</span>
+          <a href="#" class="card-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit Vega website">Visit site</a>
+        </article>
 
-          <!-- SAMPLE CARD 2 — replace or remove this -->
-          <article class="startup-card" data-category="ai">
-            <div class="card-top">
-              <div class="card-logo-placeholder" aria-hidden="true">A</div>
-              <div class="card-meta">
-                <div class="card-name">AutoDM</div>
-                <span class="card-category">AI</span>
-              </div>
-              <a href="#" class="card-visit" target="_blank" rel="noopener noreferrer" aria-label="Visit AutoDM website">Visit</a>
+        <!-- SAMPLE 2 -->
+        <article class="startup-card" data-category="saas" data-name="AutomateDM">
+          <div class="card-header">
+            <div class="card-logo-letter" style="background:#1a1a2e;font-size:13px;" aria-hidden="true">DM</div>
+            <div class="card-info">
+              <div class="card-name">AutomateDM</div>
+              <p class="card-desc">Instagram DM automation for creators and businesses</p>
             </div>
-            <p class="card-description">AI-powered Instagram DM automation for creators and growing businesses.</p>
-          </article>
-
-          <!-- EMPTY STATE — shown when no startups match filter -->
-          <div class="empty-state" id="empty-state" style="display:none;" role="status">
-            <p>No startups in this category yet.</p>
-            <p>Be the first — <a href="submit.html" style="color:var(--black);text-decoration:underline;">submit yours</a>.</p>
           </div>
+          <span class="card-tag">SaaS</span>
+          <a href="#" class="card-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit AutomateDM website">Visit site</a>
+        </article>
 
+        <!-- SAMPLE 3 -->
+        <article class="startup-card" data-category="other" data-name="blindclick">
+          <div class="card-header">
+            <div class="card-logo-letter" style="background:#222;font-size:20px;" aria-hidden="true">?</div>
+            <div class="card-info">
+              <div class="card-name">blindclick</div>
+              <p class="card-desc">One button. Highest bidder controls every click.</p>
+            </div>
+          </div>
+          <span class="card-tag">Other</span>
+          <a href="#" class="card-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Visit blindclick website">Visit site</a>
+        </article>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state" style="display:none;" role="status" aria-live="polite">
+          No startups match. <a href="submit.html" style="color:var(--black);text-decoration:underline;">Be the first.</a>
         </div>
-      </div>
-    </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how-section" aria-labelledby="how-heading">
-      <div class="how-inner">
-        <p class="how-label" id="how-heading">How it works</p>
-        <div class="how-steps">
-          <div class="how-step">
-            <div class="step-num" aria-hidden="true">1</div>
-            <div class="step-title">Submit your startup</div>
-            <p class="step-desc">Fill in your startup name, one-liner, category, website, and logo.</p>
-          </div>
-          <div class="how-step">
-            <div class="step-num" aria-hidden="true">2</div>
-            <div class="step-title">Pay ₹149/month</div>
-            <p class="step-desc">Scan the UPI QR code and pay from any UPI app. No card needed.</p>
-          </div>
-          <div class="how-step">
-            <div class="step-num" aria-hidden="true">3</div>
-            <div class="step-title">We review it</div>
-            <p class="step-desc">We verify payment and review your submission within 24 hours.</p>
-          </div>
-          <div class="how-step">
-            <div class="step-num" aria-hidden="true">4</div>
-            <div class="step-title">Go live</div>
-            <p class="step-desc">Your startup appears in the directory and stays listed as long as you subscribe.</p>
-          </div>
-        </div>
       </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-section" role="complementary" aria-label="Call to action">
-      <h2>Ready to get<br />discovered?</h2>
-      <p>Join India's growing founder community. First 25 founders lock in ₹149/month forever.</p>
-      <a href="submit.html" class="btn btn-primary" style="font-size:15px;padding:12px 28px;">Submit your startup</a>
     </div>
   </main>
 
   <!-- FOOTER -->
   <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <img src="logo.png" alt="" width="18" height="18" style="border-radius:4px;" aria-hidden="true" />
-        © <span id="year"></span> StartupOnX India
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="how-it-works.html">How it works</a>
-        <a href="discover.html">Discover</a>
-        <a href="submit.html">Submit</a>
-      </nav>
+    <div class="footer-left">
+      <img src="logo.png" alt="" aria-hidden="true" />
+      © <span id="year"></span> StartupOnX India
     </div>
+    <ul class="footer-links">
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="discover.html">Discover</a></li>
+      <li><a href="submit.html">Submit</a></li>
+    </ul>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Live count
+    function updateLiveCount() {
+      const cards = document.querySelectorAll('.startup-card');
+      const countEl = document.getElementById('live-count');
+      if (countEl) countEl.textContent = cards.length + ' startup' + (cards.length !== 1 ? 's' : '') + ' live';
+    }
+    updateLiveCount();
+
+    // Filter tabs
+    const tabs = document.querySelectorAll('.filter-tab');
+    const grid = document.getElementById('startup-grid');
+    const emptyState = document.getElementById('empty-state');
+    const searchInput = document.getElementById('search-input');
+
+    function applyFilters() {
+      const activeFilter = document.querySelector('.filter-tab.active')?.dataset.filter || 'all';
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      const cards = grid.querySelectorAll('.startup-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const cat = card.dataset.category || '';
+        const name = (card.dataset.name || '').toLowerCase();
+        const desc = (card.querySelector('.card-desc')?.textContent || '').toLowerCase();
+        const matchFilter = activeFilter === 'all' || cat === activeFilter;
+        const matchSearch = !query || name.includes(query) || desc.includes(query);
+        const show = matchFilter && matchSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      emptyState.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected','true');
+        applyFilters();
+      });
+    });
+
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+  </script>
 </body>
 </html>

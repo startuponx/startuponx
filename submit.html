@@ -8,18 +8,18 @@
   <title>Submit Your Startup — StartupOnX India</title>
   <meta name="description" content="List your Indian startup on StartupOnX India for ₹149/month. Get discovered by investors, users, and fellow founders building in public." />
   <meta name="keywords" content="submit startup india, list startup india, startup directory submission, get startup listed india" />
-  <link rel="canonical" href="https://startuponx.com/submit.html" />
+  <link rel="canonical" href="https://startuponx.in/submit.html" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://startuponx.com/submit.html" />
+  <meta property="og:url" content="https://startuponx.in/submit.html" />
   <meta property="og:title" content="Submit Your Startup — StartupOnX India" />
   <meta property="og:description" content="List your Indian startup for ₹149/month. Get discovered by investors and users." />
-  <meta property="og:image" content="https://startuponx.com/assets/og-image.png" />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Submit Your Startup — StartupOnX India" />
   <meta name="twitter:description" content="List your Indian startup for ₹149/month." />
-  <meta name="twitter:image" content="https://startuponx.com/assets/og-image.png" />
+  <meta name="twitter:image" content="https://startuponx.in/assets/og-image.png" />
 
   <!-- Prevent indexing of the thank-you state -->
   <meta name="robots" content="index, follow" />
@@ -56,7 +56,7 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="StartupOnX India home">
         <img src="logo.png" alt="StartupOnX India logo" width="26" height="26" />
-        startuponx.com
+        startuponx.in
       </a>
       <div class="nav-links">
         <a href="how-it-works.html">How it works</a>
@@ -318,7 +318,7 @@
       // 1. Go to formspree.io and create a free account
       // 2. Create a new form
       // 3. Replace YOUR_FORM_ID below with your actual form ID
-      const FORMSPREE_ID = 'xvkovbya';
+      const FORMSPREE_ID = 'YOUR_FORM_ID';
 
       try {
         const formData = new FormData(form);
@@ -342,7 +342,7 @@
         const startup = form.querySelector('#startup-name').value;
         const txn = form.querySelector('#upi-txn').value;
 
-        window.location.href = `mailto:hello@startuponx.com?subject=New Startup Submission: ${encodeURIComponent(startup)}&body=Founder: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AStartup: ${encodeURIComponent(startup)}%0AUPI TXN: ${encodeURIComponent(txn)}`;
+        window.location.href = `mailto:hello@startuponx.in?subject=New Startup Submission: ${encodeURIComponent(startup)}&body=Founder: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AStartup: ${encodeURIComponent(startup)}%0AUPI TXN: ${encodeURIComponent(txn)}`;
 
         submitBtn.textContent = 'Submit & notify payment';
         submitBtn.disabled = false;
