@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to build in public as an Indian founder — StartupOnX India</title>
+  <meta name="description" content="Building in public means sharing your progress, struggles, and wins openly. Here's how Indian founders are doing it on X and LinkedIn to grow faster." />
+  <meta name="keywords" content="build in public india, indian founder twitter, building startup india, indie hacker india" />
+  <link rel="canonical" href="https://startuponx.in/blog/how-to-build-in-public.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to build in public as an Indian founder" />
+  <meta property="og:description" content="How Indian founders are building in public on X and LinkedIn to grow faster." />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to build in public as an Indian founder","datePublished":"2026-09-01","author":{"@type":"Organization","name":"StartupOnX India"},"publisher":{"@type":"Organization","name":"StartupOnX India","url":"https://startuponx.in"}}</script>
+  <link rel="icon" type="image/png" href="../logo.png" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-brand">startuponx<span>.in</span></a>
+  <div class="nav-center"><a href="../about.html">About</a><a href="../how-it-works.html">How it works</a><a href="../contact.html">Contact</a></div>
+  <div class="nav-right" id="nav-auth"><a href="../signin.html" class="btn btn-black">Sign in</a></div>
+</nav>
+<main>
+  <article class="blog-post">
+    <a href="../blog.html" style="font-size:13px;color:var(--muted);display:inline-block;margin-bottom:24px">← All posts</a>
+    <span class="blog-tag">Guide</span>
+    <h1>How to build in public as an Indian founder</h1>
+    <div class="post-meta"><span>September 2026</span><span>·</span><span>5 min read</span></div>
+
+    <p>Building in public is simple: you share what you're building, what's working, what's failing, and what you're learning — while you're still building it. Not after you've raised funding. Not after you've hit ₹1 crore ARR. Right now, in real time.</p>
+
+    <p>For Indian founders, this is still underused. Most people wait until they have a success story to tell. That's backwards. The story <em>is</em> the journey.</p>
+
+    <h2>Why build in public?</h2>
+    <p>Three things happen when you share your progress publicly:</p>
+    <ul>
+      <li><strong>People find you.</strong> Every post is a chance for a future customer, co-founder, or investor to discover your work.</li>
+      <li><strong>You build accountability.</strong> Saying "I'll ship this feature by Friday" in public makes you actually do it.</li>
+      <li><strong>You build an audience before you need one.</strong> When you launch, you have people to tell.</li>
+    </ul>
+
+    <h2>What to share</h2>
+    <p>You don't need to share revenue numbers on day one. Start smaller:</p>
+    <ul>
+      <li>What you're building and why</li>
+      <li>A problem you solved today</li>
+      <li>A screenshot of a feature you just shipped</li>
+      <li>Your first paying customer (even if it's ₹149)</li>
+      <li>Something that didn't work and what you learned</li>
+    </ul>
+
+    <h2>Where to post</h2>
+    <p><strong>X (Twitter)</strong> is the best place for the global indie hacker audience. Post short, specific updates. Use #buildinpublic and #indiedev.</p>
+    <p><strong>LinkedIn</strong> reaches Indian founders, investors, and professionals specifically. A longer post about your journey tends to do well here.</p>
+
+    <h2>How often</h2>
+    <p>Once a week minimum. Three times a week is better. Daily if you can. The compound effect of consistent posting builds an audience — not any single viral post.</p>
+
+    <h2>Start today</h2>
+    <p>Post one thing right now. What did you build today? What are you trying to solve? Write it in two sentences and post it. That's building in public.</p>
+    <p>And when your startup is ready — <a href="../submit.html" style="color:var(--black);font-weight:600">submit it to StartupOnX India</a> so founders can find it.</p>
+  </article>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="../logo.png" alt="" aria-hidden="true" /> © <span class="yr"></span> StartupOnX India</div>
+    <div class="footer-links"><a href="../blog.html">Blog</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+  </div>
+</footer>
+<script type="module">
+  import { onAuth, signOutUser } from '../js/firebase.js';
+  document.querySelectorAll('.yr').forEach(el => el.textContent = new Date().getFullYear());
+  onAuth(user => {
+    const nav = document.getElementById('nav-auth');
+    if (user) { nav.innerHTML = `<a href="../my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`; document.getElementById('so').onclick = () => signOutUser(); }
+    else { nav.innerHTML = `<a href="../signin.html" class="btn btn-black">Sign in</a>`; }
+  });
+</script>
+</body>
+</html>

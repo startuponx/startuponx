@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My listings — StartupOnX India</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-brand">startuponx<span>.in</span></a>
+  <div class="nav-center">
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right" id="nav-auth"></div>
+</nav>
+
+<main>
+  <div id="loading-state" class="listings-wrap">
+    <p style="color:var(--muted);font-size:14px">Loading...</p>
+  </div>
+  <div id="listings-content" class="listings-wrap" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px">
+      <h1>My listings</h1>
+      <a href="submit.html" class="btn btn-black">+ Add listing</a>
+    </div>
+    <div id="listings-list"></div>
+    <div id="no-listings" style="display:none;text-align:center;padding:64px 24px;color:var(--muted);font-size:14px">
+      You haven't submitted any startups yet.<br/>
+      <a href="submit.html" style="color:var(--black);font-weight:600;text-decoration:underline;margin-top:8px;display:inline-block">Submit your first startup →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="logo.png" alt="" aria-hidden="true" /> © <span id="yr"></span> StartupOnX India</div>
+    <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+  </div>
+</footer>
+
+<script type="module">
+  import { onAuth, signOutUser, getMyListings } from './js/firebase.js';
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  onAuth(async user => {
+    const navAuth = document.getElementById('nav-auth');
+    if (!user) { window.location.href = 'signin.html'; return; }
+
+    navAuth.innerHTML = `<a href="my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`;
+    document.getElementById('so').onclick = () => { signOutUser(); window.location.href = 'index.html'; };
+
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('listings-content').style.display = 'block';
+
+    const listings = await getMyListings(user.uid);
+    const list = document.getElementById('listings-list');
+    const noList = document.getElementById('no-listings');
+
+    if (listings.length === 0) { noList.style.display = 'block'; return; }
+
+    listings.forEach(s => {
+      const statusClass = s.status === 'live' ? 'status-live' : 'status-review';
+      const statusText  = s.status === 'live' ? '● Live' : '⏳ Under review';
+      const logoHtml = s.logoUrl
+        ? `<img class="card-logo" src="${s.logoUrl}" alt="${s.name}" width="48" height="48" />`
+        : `<div class="card-logo-letter" style="width:48px;height:48px;font-size:18px">${(s.name||'?')[0].toUpperCase()}</div>`;
+      const el = document.createElement('div');
+      el.className = 'my-listing-card';
+      el.innerHTML = `
+        ${logoHtml}
+        <div>
+          <div style="font-weight:700;font-size:15px">${s.name}</div>
+          <div style="font-size:13px;color:var(--muted)">${s.desc}</div>
+        </div>
+        <span class="listing-status ${statusClass}">${statusText}</span>`;
+      list.appendChild(el);
+    });
+  });
+</script>
+</body>
+</html>

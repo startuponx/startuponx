@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to accept UPI payments for your SaaS without a payment gateway — StartupOnX India</title>
+  <meta name="description" content="Before Razorpay and Stripe, many Indian founders started with a UPI QR code. Here's how to collect your first ₹1,000 MRR with zero payment infrastructure." />
+  <meta name="keywords" content="upi saas payments india, accept payments india without razorpay, upi qr code saas india, collect payments india startup" />
+  <link rel="canonical" href="https://startuponx.in/blog/upi-for-saas.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to accept UPI payments for your SaaS without a payment gateway" />
+  <meta property="og:description" content="How to collect your first ₹1,000 MRR with just a UPI QR code." />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to accept UPI payments for your SaaS without a payment gateway","datePublished":"2026-09-07","author":{"@type":"Organization","name":"StartupOnX India"},"publisher":{"@type":"Organization","name":"StartupOnX India","url":"https://startuponx.in"}}</script>
+  <link rel="icon" type="image/png" href="../logo.png" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-brand">startuponx<span>.in</span></a>
+  <div class="nav-center"><a href="../about.html">About</a><a href="../how-it-works.html">How it works</a><a href="../contact.html">Contact</a></div>
+  <div class="nav-right" id="nav-auth"><a href="../signin.html" class="btn btn-black">Sign in</a></div>
+</nav>
+<main>
+  <article class="blog-post">
+    <a href="../blog.html" style="font-size:13px;color:var(--muted);display:inline-block;margin-bottom:24px">← All posts</a>
+    <span class="blog-tag">Payments</span>
+    <h1>How to accept UPI payments for your SaaS without a payment gateway</h1>
+    <div class="post-meta"><span>September 2026</span><span>·</span><span>4 min read</span></div>
+
+    <p>Most Indian founders think they need Razorpay or Stripe before they can charge customers. They don't. You can collect your first ₹10,000 in revenue using nothing but a UPI QR code and a Google Sheet. Here's exactly how.</p>
+
+    <h2>Why start with UPI QR before a payment gateway?</h2>
+    <ul>
+      <li>Zero setup time — you already have a UPI ID from GPay, PhonePe, or Paytm</li>
+      <li>Zero fees — UPI is free for most transactions under ₹2,000</li>
+      <li>No business registration needed to start collecting money</li>
+      <li>Forces you to talk to customers directly, which is valuable at the beginning</li>
+    </ul>
+
+    <h2>The flow</h2>
+    <p>Here's the simple manual flow that works for early-stage products:</p>
+    <ul>
+      <li>Customer fills your submission or signup form</li>
+      <li>You show them your UPI QR code on screen</li>
+      <li>They pay via GPay, PhonePe, or Paytm</li>
+      <li>They send you the transaction ID</li>
+      <li>You verify in your UPI app and manually activate their account</li>
+    </ul>
+
+    <h2>What about recurring billing?</h2>
+    <p>For monthly subscriptions, you have two options at the manual stage:</p>
+    <ul>
+      <li><strong>Remind them manually</strong> — send a WhatsApp message on the billing date. Awkward but it works for the first 10 customers.</li>
+      <li><strong>UPI AutoPay</strong> — some UPI apps support setting up recurring mandates. Ask your customers to set one up.</li>
+    </ul>
+
+    <h2>When to upgrade to Razorpay</h2>
+    <p>Once you have 15–20 paying customers, the manual overhead becomes real. That's the right time to set up Razorpay Subscriptions. By then you'll have proven demand, have money coming in to cover the setup, and have enough customers to justify the automation.</p>
+
+    <h2>The mindset shift</h2>
+    <p>The point of starting with UPI QR is not the payment method — it's proving that someone will pay. That's the hardest and most important thing. Don't hide behind "I'm still setting up payments" as a reason not to charge people.</p>
+    <p>Charge someone today. Even ₹149. Then figure out the infrastructure.</p>
+    <p><a href="../submit.html" style="color:var(--black);font-weight:600">List your startup on StartupOnX India →</a></p>
+  </article>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="../logo.png" alt="" aria-hidden="true" /> © <span class="yr"></span> StartupOnX India</div>
+    <div class="footer-links"><a href="../blog.html">Blog</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+  </div>
+</footer>
+<script type="module">
+  import { onAuth, signOutUser } from '../js/firebase.js';
+  document.querySelectorAll('.yr').forEach(el => el.textContent = new Date().getFullYear());
+  onAuth(user => {
+    const nav = document.getElementById('nav-auth');
+    if (user) { nav.innerHTML = `<a href="../my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`; document.getElementById('so').onclick = () => signOutUser(); }
+    else { nav.innerHTML = `<a href="../signin.html" class="btn btn-black">Sign in</a>`; }
+  });
+</script>
+</body>
+</html>

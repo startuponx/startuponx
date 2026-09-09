@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /my-listings.html
+Disallow: /signin.html
+
+Sitemap: https://startuponx.in/sitemap.xml

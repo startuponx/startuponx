@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — StartupOnX India</title>
+  <meta name="description" content="Questions about your listing or a refund? Contact StartupOnX India." />
+  <link rel="canonical" href="https://startuponx.in/contact.html" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-brand">startuponx<span>.in</span></a>
+  <div class="nav-center">
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+  <div class="nav-right" id="nav-auth"><a href="signin.html" class="btn btn-black">Sign in</a></div>
+</nav>
+<main>
+  <div class="simple-page">
+    <h1>Contact</h1>
+    <p class="page-sub">Questions about a listing or a refund? Send a message.</p>
+
+    <div id="success" style="display:none;background:var(--white);border-radius:10px;padding:20px;font-size:14px;color:var(--muted)">
+      ✅ Message sent. We'll reply within 24 hours.
+    </div>
+
+    <form class="contact-form" id="contact-form" novalidate>
+      <input class="field-input" type="email" id="email" placeholder="you@example.com" required autocomplete="email" />
+      <textarea class="field-input" id="message" placeholder="How can we help?" required rows="5"></textarea>
+      <button type="submit" class="btn btn-black" style="align-self:flex-start" id="send-btn">Send message</button>
+    </form>
+  </div>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="logo.png" alt="" aria-hidden="true" /> © <span class="yr"></span> StartupOnX India</div>
+    <div class="footer-links"><a href="blog.html">Blog</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+  </div>
+</footer>
+<script type="module">
+  import { onAuth, signOutUser } from './js/firebase.js';
+  document.querySelectorAll('.yr').forEach(el => el.textContent = new Date().getFullYear());
+  onAuth(user => {
+    const nav = document.getElementById('nav-auth');
+    if (user) { nav.innerHTML = `<a href="my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`; document.getElementById('so').onclick = () => signOutUser(); }
+    else { nav.innerHTML = `<a href="signin.html" class="btn btn-black">Sign in</a>`; }
+  });
+
+  // Contact form — uses Formspree (free). Replace YOUR_ID with your Formspree form ID.
+  // Sign up free at formspree.io → create form → copy ID
+  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+
+  document.getElementById('contact-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('send-btn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: document.getElementById('email').value, message: document.getElementById('message').value })
+      });
+      if (res.ok) { document.getElementById('contact-form').style.display = 'none'; document.getElementById('success').style.display = 'block'; }
+      else throw new Error();
+    } catch { btn.textContent = 'Send message'; btn.disabled = false; alert('Failed. Email us at hello@startuponx.in'); }
+  });
+</script>
+</body>
+</html>

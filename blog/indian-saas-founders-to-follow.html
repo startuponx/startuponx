@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10 Indian SaaS founders you should follow on X — StartupOnX India</title>
+  <meta name="description" content="These Indian founders are building openly, sharing revenue numbers, and growing genuine audiences on X. Follow them to learn what building in India really looks like." />
+  <meta name="keywords" content="indian saas founders twitter, indian founders to follow, build in public india, indian startup community x twitter" />
+  <link rel="canonical" href="https://startuponx.in/blog/indian-saas-founders-to-follow.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="10 Indian SaaS founders you should follow on X" />
+  <meta property="og:description" content="Indian founders building openly and sharing revenue numbers on X." />
+  <meta property="og:image" content="https://startuponx.in/assets/og-image.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"10 Indian SaaS founders you should follow on X right now","datePublished":"2026-09-05","author":{"@type":"Organization","name":"StartupOnX India"},"publisher":{"@type":"Organization","name":"StartupOnX India","url":"https://startuponx.in"}}</script>
+  <link rel="icon" type="image/png" href="../logo.png" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-brand">startuponx<span>.in</span></a>
+  <div class="nav-center"><a href="../about.html">About</a><a href="../how-it-works.html">How it works</a><a href="../contact.html">Contact</a></div>
+  <div class="nav-right" id="nav-auth"><a href="../signin.html" class="btn btn-black">Sign in</a></div>
+</nav>
+<main>
+  <article class="blog-post">
+    <a href="../blog.html" style="font-size:13px;color:var(--muted);display:inline-block;margin-bottom:24px">← All posts</a>
+    <span class="blog-tag">Community</span>
+    <h1>10 Indian SaaS founders you should follow on X right now</h1>
+    <div class="post-meta"><span>September 2026</span><span>·</span><span>6 min read</span></div>
+
+    <p>The Indian startup community on X (Twitter) is growing fast. Founders are sharing MRR updates, cold outreach experiments, failed launches, and product decisions — in real time. If you're building a startup in India, these are the people worth following.</p>
+
+    <h2>What to look for in a founder worth following</h2>
+    <p>The best founders to follow share specifics — actual numbers, actual failures, actual decisions. Avoid accounts that only share motivational quotes or big announcements. Look for the ones who post about what didn't work.</p>
+
+    <h2>Categories of founders to follow</h2>
+
+    <h2>Bootstrapped SaaS founders</h2>
+    <p>Bootstrapped founders tend to share the most honest content because they have no investor narrative to maintain. Search for Indian founders posting their monthly MRR updates, churn numbers, and feature experiments. These posts are gold for anyone building their own product.</p>
+
+    <h2>Pre-launch founders building in public</h2>
+    <p>Some of the most useful content comes from founders who are still building — sharing what they're learning before they have customers. Follow them early and you'll see the whole journey, not just the highlight reel.</p>
+
+    <h2>Founder-led product accounts</h2>
+    <p>Some founders post primarily from their product's account, mixing product updates with founder commentary. These accounts tend to be more consistent and focused than personal accounts.</p>
+
+    <h2>How to find them</h2>
+    <ul>
+      <li>Search X for #buildinpublic + India</li>
+      <li>Look at who replies to Indian startup news accounts</li>
+      <li>Check the followers of Indian VC and angel investor accounts</li>
+      <li>Browse the <a href="../index.html" style="color:var(--black);font-weight:600">StartupOnX India directory</a> — most listed founders are active on X</li>
+    </ul>
+
+    <h2>And share your own journey</h2>
+    <p>The best way to connect with this community is to post your own progress. Even one post a week about what you're building will get you noticed by the right people faster than any networking event.</p>
+    <p>When you're ready, <a href="../submit.html" style="color:var(--black);font-weight:600">list your startup on StartupOnX India</a> so the community can find you.</p>
+  </article>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left"><img src="../logo.png" alt="" aria-hidden="true" /> © <span class="yr"></span> StartupOnX India</div>
+    <div class="footer-links"><a href="../blog.html">Blog</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+  </div>
+</footer>
+<script type="module">
+  import { onAuth, signOutUser } from '../js/firebase.js';
+  document.querySelectorAll('.yr').forEach(el => el.textContent = new Date().getFullYear());
+  onAuth(user => {
+    const nav = document.getElementById('nav-auth');
+    if (user) { nav.innerHTML = `<a href="../my-listings.html" class="btn btn-outline">My listings</a><button class="btn btn-black" id="so">Sign out</button>`; document.getElementById('so').onclick = () => signOutUser(); }
+    else { nav.innerHTML = `<a href="../signin.html" class="btn btn-black">Sign in</a>`; }
+  });
+</script>
+</body>
+</html>
