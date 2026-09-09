@@ -3,4 +3,4 @@ Allow: /
 Disallow: /my-listings.html
 Disallow: /signin.html
 
-Sitemap: https://startuponx.in/sitemap.xml
+Sitemap: https://startuponx.com/sitemap.xml
