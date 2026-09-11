@@ -1,0 +1,5 @@
+# Cloudflare Pages _redirects
+# Redirect common mistakes
+/home  /  301
+/index /  301
+/discover /  301

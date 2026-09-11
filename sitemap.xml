@@ -1,16 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://startuponx.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://startuponx.com/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://startuponx.com/how-it-works.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://startuponx.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://startuponx.com/submit.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://startuponx.com/discover.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://startuponx.com/blog.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://startuponx.com/blog/how-to-build-in-public.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://startuponx.com/blog/why-list-startup-directory.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://startuponx.com/blog/indian-saas-founders-to-follow.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://startuponx.com/blog/upi-for-saas.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://startuponx.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://startuponx.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://startuponx.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/submit.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/blog/how-to-build-in-public.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-09-01</lastmod>
+    <image:image>
+      <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
+      <image:title>How to build in public as an Indian founder</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/blog/why-list-startup-directory.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-09-03</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/blog/indian-saas-founders-to-follow.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/blog/upi-for-saas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/how-it-works.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
+  <url>
+    <loc>https://startuponx.com/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2026-09-12</lastmod>
+  </url>
+
 </urlset>
