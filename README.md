@@ -90,7 +90,7 @@ You'll now receive an email every time someone submits.
 
 ## How to update your domain/email in the code
 
-Search for `startuponx.com` and `hello@startuponx.com` across all HTML files and replace with your actual domain and email.
+Search for `startuponx.com` and `startuponx@gmail.com` across all HTML files and replace with your actual domain and email.
 
 ---
 
