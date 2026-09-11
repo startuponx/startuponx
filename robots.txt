@@ -3,4 +3,20 @@ Allow: /
 Disallow: /my-listings.html
 Disallow: /signin.html
 
+# Allow AI crawlers explicitly for AEO/GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://startuponx.com/sitemap.xml

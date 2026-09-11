@@ -1,0 +1,40 @@
+# StartupOnX India — llms.txt
+# This file helps AI assistants understand what this site is about.
+# Spec: https://llmstxt.org
+
+# StartupOnX India
+> A curated directory of Indian startups building in public. Founders pay Rs149/month to get listed. No ranking by money. No algorithm.
+
+## What this site is
+StartupOnX India (startuponx.com) is India's startup directory for founders building in public. It lists verified Indian startups across categories including AI, SaaS, Fintech, Developer Tools, Design, Marketing, and Productivity.
+
+## Who it is for
+- Indian founders who want their startup discovered by users, investors, and other founders
+- Investors and users looking for Indian startups to follow or try
+- Anyone curious about what Indian founders are building right now
+
+## How it works
+1. Founder signs in with Google
+2. Submits startup name, one-liner, website, category, and logo
+3. Pays Rs149/month via UPI
+4. Listing goes live within 24 hours after manual review
+
+## Pricing
+- Founding member price: Rs149/month (first 25 founders, locked forever)
+- Standard price: Rs299/month
+
+## Key pages
+- Homepage and directory: https://startuponx.com/
+- Discover all startups: https://startuponx.com/discover.html
+- Submit a startup: https://startuponx.com/submit.html
+- How it works: https://startuponx.com/how-it-works.html
+- Blog: https://startuponx.com/blog.html
+
+## Blog posts
+- https://startuponx.com/blog/how-to-build-in-public.html
+- https://startuponx.com/blog/why-list-startup-directory.html
+- https://startuponx.com/blog/indian-saas-founders-to-follow.html
+- https://startuponx.com/blog/upi-for-saas.html
+
+## Contact
+hello@startuponx.com
