@@ -5,21 +5,37 @@
   <url>
     <loc>https://startuponx.com/</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
+      <image:title>StartupOnX India — Discover Indian Startups Building in Public</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://startuponx.com/submit</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://startuponx.com/blog</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
+      <image:title>StartupOnX India Blog — Indian Founder Guides</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://startuponx.com/blog/how-to-build-in-public</loc>
     <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
       <image:title>How to build in public as an Indian founder</image:title>
@@ -29,41 +45,69 @@
   <url>
     <loc>https://startuponx.com/blog/why-list-startup-directory</loc>
     <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
+      <image:title>Why listing your startup in a directory still works in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://startuponx.com/blog/indian-saas-founders-to-follow</loc>
     <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
+      <image:title>10 Indian SaaS founders you should follow on X</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://startuponx.com/blog/upi-for-saas</loc>
     <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://startuponx.com/assets/og-image.png</image:loc>
+      <image:title>How to accept UPI payments for your SaaS without a payment gateway</image:title>
+    </image:image>
   </url>
 
   <url>
     <loc>https://startuponx.com/how-it-works</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://startuponx.com/about</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://startuponx.com/contact</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://startuponx.com/privacy</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://startuponx.com/terms</loc>
     <lastmod>2026-09-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
