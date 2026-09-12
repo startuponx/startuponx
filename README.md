@@ -9,7 +9,6 @@ Your startup directory website. Clean, fast, SEO-ready.
 ```
 startuponx/
 ├── index.html          ← Homepage
-├── discover.html       ← All startups grid
 ├── submit.html         ← Submission form + UPI payment
 ├── how-it-works.html   ← How it works + FAQ
 ├── logo.png            ← YOUR LOGO (add this file)
@@ -29,47 +28,6 @@ startuponx/
 1. **logo.png** — Your brand logo. Save it in the root folder.
 2. **assets/upi-qr.png** — Screenshot of your UPI QR from GPay/PhonePe.
 3. **assets/og-image.png** — A 1200×630 image that appears when you share your link on WhatsApp/Twitter.
-
----
-
-## How to add a new startup listing
-
-Open `discover.html` (and `index.html` for featured ones).
-
-Find the startup grid section and copy this block:
-
-```html
-<article class="startup-card" data-category="saas" data-name="Your Startup Name">
-  <div class="card-top">
-    <div class="card-logo-placeholder" aria-hidden="true">S</div>
-    <div class="card-meta">
-      <div class="card-name">Startup Name</div>
-      <span class="card-category">SaaS</span>
-    </div>
-    <a href="https://yourstartup.com" class="card-visit" target="_blank" rel="noopener noreferrer">Visit</a>
-  </div>
-  <p class="card-description">One-line description of the startup goes here.</p>
-</article>
-```
-
-**To use a real logo instead of a letter placeholder**, replace:
-```html
-<div class="card-logo-placeholder" aria-hidden="true">S</div>
-```
-with:
-```html
-<img class="card-logo" src="assets/logos/startup-name.png" alt="Startup Name logo" width="44" height="44" />
-```
-
-**data-category values** (must match exactly):
-- `ai`
-- `saas`
-- `fintech`
-- `developer-tools`
-- `design`
-- `marketing`
-- `productivity`
-- `other`
 
 ---
 
@@ -123,15 +81,3 @@ Your site is live. Every time you push to GitHub, Cloudflare updates automatical
 
 ---
 
-## Every time you add a new startup
-
-1. Open `discover.html` in VS Code
-2. Add the startup card HTML (copy the template above)
-3. Save the file
-4. In VS Code terminal:
-```
-git add .
-git commit -m "Add [Startup Name]"
-git push
-```
-5. Cloudflare updates your live site in ~30 seconds.

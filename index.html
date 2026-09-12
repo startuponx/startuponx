@@ -12,14 +12,12 @@
   <meta name="author" content="StartupOnX India" />
   <meta name="geo.region" content="IN" />
   <meta name="geo.placename" content="India" />
-
-  <!-- CORRECT CANONICAL — startuponx.com -->
   <link rel="canonical" href="https://startuponx.com/" />
   <link rel="alternate" hreflang="en-IN" href="https://startuponx.com/" />
   <link rel="alternate" hreflang="en" href="https://startuponx.com/" />
   <link rel="alternate" hreflang="x-default" href="https://startuponx.com/" />
 
-  <!-- OG / SOCIAL — correct domain -->
+  <!-- OG -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://startuponx.com/" />
   <meta property="og:title" content="StartupOnX India — Discover Indian Startups Building in Public" />
@@ -40,7 +38,7 @@
   <meta name="twitter:image" content="https://startuponx.com/assets/og-image.png" />
   <meta name="twitter:image:alt" content="StartupOnX India startup directory" />
 
-  <!-- STRUCTURED DATA: WebSite + Organization + FAQ + ItemList -->
+  <!-- STRUCTURED DATA -->
   <script type="application/ld+json">
   [
     {
@@ -52,10 +50,7 @@
       "inLanguage": "en-IN",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://startuponx.com/?q={search_term_string}"
-        },
+        "target": {"@type": "EntryPoint", "urlTemplate": "https://startuponx.com/?q={search_term_string}"},
         "query-input": "required name=search_term_string"
       }
     },
@@ -69,12 +64,7 @@
       "email": "startuponx@gmail.com",
       "foundingDate": "2026",
       "areaServed": "IN",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "startuponx@gmail.com",
-        "availableLanguage": "English"
-      },
+      "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "startuponx@gmail.com"},
       "sameAs": [
         "https://twitter.com/startuponx_com",
         "https://linkedin.com/company/startuponx",
@@ -88,78 +78,51 @@
         {
           "@type": "Question",
           "name": "How do I list my startup on StartupOnX India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sign in with Google, fill in your startup name, one-liner, website, category, and logo, then pay ₹149/month via UPI. Your listing goes live within 24 hours after review."
-          }
+          "acceptedAnswer": {"@type": "Answer", "text": "Sign in with Google, fill in your startup name, one-liner, website, category, and logo, then pay ₹149/month via UPI. Your listing goes live within 24 hours after review."}
         },
         {
           "@type": "Question",
           "name": "How much does it cost to list a startup in India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "StartupOnX India charges ₹149/month. The first 25 founders lock in this price forever. After that, the price goes to ₹299/month."
-          }
+          "acceptedAnswer": {"@type": "Answer", "text": "StartupOnX India charges ₹149/month. The first 25 founders lock in this price forever. After that, the price goes to ₹299/month."}
         },
         {
           "@type": "Question",
           "name": "What is StartupOnX India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "StartupOnX India is a curated directory of Indian startups building in public. Founders pay ₹149/month to get listed and get discovered by investors, users, and other founders. No ranking by money. No algorithm."
-          }
+          "acceptedAnswer": {"@type": "Answer", "text": "StartupOnX India is a curated directory of Indian startups building in public. Founders pay ₹149/month to get listed and get discovered by investors, users, and other founders. No ranking by money. No algorithm."}
         },
         {
           "@type": "Question",
           "name": "Can I pay via UPI to list my startup?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. StartupOnX India accepts payment via UPI QR code — works with GPay, PhonePe, Paytm, or any UPI app. No credit card needed."
-          }
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. StartupOnX India accepts payment via UPI QR code — works with GPay, PhonePe, Paytm, or any UPI app. No credit card needed."}
         },
         {
           "@type": "Question",
           "name": "How long does it take for my startup listing to go live?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Startup listings go live within 24 hours after we manually verify your UPI payment and review your submission."
-          }
+          "acceptedAnswer": {"@type": "Answer", "text": "Startup listings go live within 24 hours after we manually verify your UPI payment and review your submission."}
         }
       ]
     }
   ]
   </script>
 
-  <!-- SPEED: preconnect before any external resource -->
+  <!-- SPEED -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
-
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
   <link rel="stylesheet" href="css/styles.css" />
 
   <style>
     .hero-annotation {
-      position: absolute;
-      top: 48px;
-      right: 40px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 10px;
-      pointer-events: none;
-      user-select: none;
+      position: absolute; top: 48px; right: 40px;
+      display: flex; flex-direction: row; align-items: center; gap: 10px;
+      pointer-events: none; user-select: none;
     }
     .annotation-arrow { flex-shrink: 0; }
     .annotation-text {
-      transform: rotate(-8deg);
-      font-size: 20px;
-      font-weight: 700;
-      color: #1d6aff;
-      font-style: italic;
-      line-height: 1.3;
-      white-space: nowrap;
+      transform: rotate(-8deg); font-size: 20px; font-weight: 700;
+      color: #1d6aff; font-style: italic; line-height: 1.3; white-space: nowrap;
     }
     @media (max-width: 700px) { .hero-annotation { display: none; } }
   </style>
@@ -167,7 +130,6 @@
 <body>
 
 <nav class="nav">
-  <!-- FIXED: .com not .in -->
   <a href="index.html" class="nav-brand">startuponx<span>.com</span></a>
   <div class="nav-center">
     <a href="about.html">About</a>
@@ -189,15 +151,12 @@
     <span class="hero-lock">First 25 lock in ₹149/mo. After that, ₹299/mo.</span>
   </div>
   <p class="hero-live" id="live-count"></p>
-
   <div class="hero-annotation" aria-hidden="true">
     <svg class="annotation-arrow" viewBox="0 0 120 60" fill="none"
          style="width:110px;height:50px;color:#1d6aff;" xmlns="http://www.w3.org/2000/svg">
-      <path d="M115 8 C85 4, 35 22, 8 48"
-            stroke="currentColor" stroke-width="2"
+      <path d="M115 8 C85 4, 35 22, 8 48" stroke="currentColor" stroke-width="2"
             stroke-dasharray="4 6" stroke-linecap="round" fill="none"/>
-      <path d="M8 48 L18 40 M8 48 L16 56"
-            stroke="currentColor" stroke-width="2"
+      <path d="M8 48 L18 40 M8 48 L16 56" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <p class="annotation-text">One-fifty.<br/>Stay listed.</p>
@@ -234,7 +193,7 @@
     </div>
   </div>
 
-  <!-- STATIC BLOG LINKS — Google reads this without JS -->
+  <!-- Static blog links — Google reads these without JS -->
   <section style="max-width:var(--max-w);margin:0 auto;padding:0 40px 64px" aria-labelledby="blog-heading">
     <h2 id="blog-heading" style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:20px">From our blog</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
@@ -263,7 +222,6 @@
 <footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-left">
-      <!-- FIXED: logo has proper alt text now -->
       <img src="logo.png" alt="StartupOnX India logo" width="18" height="18" />
       © <span id="yr"></span> StartupOnX India
     </div>
@@ -276,149 +234,8 @@
   </div>
 </footer>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, signOut, onAuthStateChanged }
-    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { getFirestore, collection, query, where, getDocs }
-    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-  // YOUR FIREBASE CONFIG — kept exactly as you had it
-  const firebaseConfig = {
-    apiKey: "AIzaSyBo0znzdeRwlclOvrSouUzRja4yFHUu6Tc",
-    authDomain: "startuponx-e228c.firebaseapp.com",
-    projectId: "startuponx-e228c",
-    storageBucket: "startuponx-e228c.firebasestorage.app",
-    messagingSenderId: "333136775467",
-    appId: "1:333136775467:web:30ccb507b40a13b1cc9d6e",
-    measurementId: "G-9MJEJT5ELL"
-  };
-
-  const app  = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db   = getFirestore(app);
-
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Nav: update on auth state
-  onAuthStateChanged(auth, function(user) {
-    var navAuth = document.getElementById('nav-auth');
-    if (user) {
-      navAuth.innerHTML =
-        '<a href="my-listings.html" class="btn btn-outline">My listings</a>' +
-        '<button class="btn btn-black" id="signout-btn">Sign out</button>';
-      document.getElementById('signout-btn').addEventListener('click', function() {
-        signOut(auth);
-      });
-    } else {
-      navAuth.innerHTML = '<a href="signin.html" class="btn btn-black">Sign in</a>';
-    }
-  });
-
-  // Load live startups from Firestore
-  async function loadStartups() {
-    var grid    = document.getElementById('grid');
-    var empty   = document.getElementById('empty');
-    var countEl = document.getElementById('live-count');
-
-    try {
-      var q    = query(collection(db, 'startups'), where('status', '==', 'live'));
-      var snap = await getDocs(q);
-      var startups = [];
-      snap.forEach(function(doc) {
-        startups.push(Object.assign({ id: doc.id }, doc.data()));
-      });
-
-      var n = startups.length;
-      countEl.textContent = n + ' startup' + (n !== 1 ? 's' : '') + ' live';
-
-      if (n === 0) { empty.style.display = 'block'; return; }
-
-      startups.forEach(function(s) {
-        var rawUrl  = s.website || s.url || '';
-        var siteUrl = rawUrl.startsWith('http') ? rawUrl : 'https://' + rawUrl;
-
-        // FIXED: proper alt text with startup name for SEO
-        var logoHtml = s.logoUrl
-          ? '<img class="card-logo" src="' + s.logoUrl + '" alt="' + (s.name || '') + ' logo — Indian startup" width="52" height="52" loading="lazy" />'
-          : '<div class="card-logo-letter" aria-hidden="true">' + (s.name || '?')[0].toUpperCase() + '</div>';
-
-        var descText   = s.desc || s.description || '';
-        var catRaw     = s.category || 'other';
-        var catSlug    = catRaw.toLowerCase().replace(/\s+/g, '-');
-        var catDisplay = catRaw.charAt(0).toUpperCase() + catRaw.slice(1);
-
-        var card = document.createElement('article');
-        card.className = 'startup-card';
-        card.dataset.category = catSlug;
-        card.dataset.name = (s.name || '').toLowerCase();
-
-        // Microdata for Google — each card is an Organization
-        card.setAttribute('itemscope', '');
-        card.setAttribute('itemtype', 'https://schema.org/Organization');
-
-        card.innerHTML =
-          '<div class="card-header">' +
-            logoHtml +
-            '<div class="card-info">' +
-              '<div class="card-name" itemprop="name">' + (s.name || '') + '</div>' +
-              '<p class="card-desc" itemprop="description">' + descText + '</p>' +
-            '</div>' +
-          '</div>' +
-          '<span class="card-tag">' + catDisplay + '</span>' +
-          '<a href="' + siteUrl + '" class="card-visit" target="_blank" rel="noopener noreferrer" itemprop="url">Visit site</a>';
-
-        grid.insertBefore(card, empty);
-      });
-
-    } catch (err) {
-      console.error('Firestore load error:', err);
-      countEl.textContent = '';
-      empty.style.display = 'block';
-      empty.innerHTML = 'Could not load startups. <a href="submit.html" style="color:var(--black);text-decoration:underline">Submit yours.</a>';
-    }
-  }
-
-  loadStartups();
-
-  // Filter + Search
-  var tabs        = document.querySelectorAll('.filter-tab');
-  var searchInput = document.getElementById('search');
-
-  function applyFilters() {
-    var active  = (document.querySelector('.filter-tab.active') || {}).dataset || {};
-    var filter  = active.filter || 'all';
-    var q       = searchInput.value.trim().toLowerCase();
-    var cards   = document.querySelectorAll('.startup-card');
-    var visible = 0;
-
-    cards.forEach(function(c) {
-      var matchCat    = filter === 'all' || c.dataset.category === filter;
-      var descEl      = c.querySelector('.card-desc');
-      var descText    = descEl ? descEl.textContent.toLowerCase() : '';
-      var matchSearch = !q || c.dataset.name.includes(q) || descText.includes(q);
-      var show        = matchCat && matchSearch;
-      c.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-
-    document.getElementById('empty').style.display = visible === 0 ? 'block' : 'none';
-  }
-
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      tabs.forEach(function(t) {
-        t.classList.remove('active');
-        t.setAttribute('aria-pressed', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-pressed', 'true');
-      applyFilters();
-    });
-  });
-
-  searchInput.addEventListener('input', applyFilters);
-</script>
+<!-- All logic lives in main.js — edit that file, not here -->
+<script type="module" src="js/main.js"></script>
 
 </body>
 </html>
