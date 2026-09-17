@@ -1,12 +1,4 @@
-# Fix Image 2: www + http → https non-www
-http://www.startuponx.com/* https://startuponx.com/:splat 301!
-https://www.startuponx.com/* https://startuponx.com/:splat 301!
-http://startuponx.com/* https://startuponx.com/:splat 301!
-
-# Fix Image 3: index.html → /
-/index.html https://startuponx.com/ 301!
-
-# Fix Image 1: .html redirect errors → clean URLs
+/index.html / 301!
 /terms.html /terms 301!
 /privacy.html /privacy 301!
 /submit.html /submit 301!
