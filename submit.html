@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submit your startup — StartupOnX India</title>
-  <meta name="description" content="List your Indian startup on StartupOnX India for ₹149/month. Get discovered by investors, users, and fellow founders." />
-  <link rel="canonical" href="https://startuponx.com/submit.html" />
+  <title>Submit Your Indian Startup — StartupOnX India ₹149/mo</title>
+  <meta name="description" content="List your Indian startup on StartupOnX India for ₹149/month. Get discovered by investors, users, and fellow founders. Pay via UPI. Live in 24 hours." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://startuponx.com/submit" />
+  <link rel="alternate" hreflang="en-IN" href="https://startuponx.com/submit" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://startuponx.com/submit" />
+  <meta property="og:title" content="Submit Your Indian Startup — StartupOnX India ₹149/mo" />
+  <meta property="og:description" content="Get your Indian startup discovered by investors, users, and founders. Pay ₹149/month via UPI. Live in 24 hours." />
+  <meta property="og:image" content="https://startuponx.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="StartupOnX India" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@startuponx_com" />
+  <meta name="twitter:title" content="Submit Your Indian Startup — ₹149/mo" />
+  <meta name="twitter:description" content="List your startup. Pay via UPI. Go live in 24 hours." />
+  <meta name="twitter:image" content="https://startuponx.com/assets/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -16,7 +33,6 @@
     <a href="how-it-works.html">How it works</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    
   </div>
   <div class="nav-right" id="nav-auth">
     <a href="signin.html" class="btn btn-black">Sign in</a>
@@ -24,7 +40,6 @@
 </nav>
 
 <main>
-  <!-- Auth gate: shown when not signed in -->
   <div id="auth-gate" style="display:none">
     <div class="signin-wrap">
       <h1>Sign in first</h1>
@@ -36,41 +51,32 @@
     </div>
   </div>
 
-  <!-- The actual form -->
   <div id="form-wrap" style="display:none">
     <div class="submit-wrap">
       <h1>Submit your startup</h1>
       <p class="sub">₹149/month to get listed. We review every submission before it goes live.</p>
-
       <div id="success-msg" style="display:none;background:var(--white);border-radius:12px;padding:24px;margin-bottom:24px;text-align:center;">
         <div style="font-size:28px;margin-bottom:8px">✅</div>
         <div style="font-weight:700;font-size:16px;margin-bottom:4px">Submission received</div>
         <div style="font-size:14px;color:var(--muted)">We'll verify your payment and go live within 24 hours. Check your email.</div>
       </div>
-
       <form id="submit-form" novalidate>
         <div class="form-field">
           <label class="form-label" for="company-name">Company name</label>
           <input class="form-input" type="text" id="company-name" placeholder="Acme" required maxlength="60" autocomplete="organization" />
         </div>
-
         <div class="form-field">
-          <div class="form-label">
-            One-line description
-            <span class="char-count" id="desc-count">0/100</span>
-          </div>
+          <div class="form-label">One-line description <span class="char-count" id="desc-count">0/100</span></div>
           <input class="form-input" type="text" id="description" placeholder="The simplest way to do X" required maxlength="100" />
         </div>
-
         <div class="form-field">
           <label class="form-label" for="website">Website URL</label>
           <input class="form-input" type="url" id="website" placeholder="example.com" required />
         </div>
-
         <div class="form-field">
           <label class="form-label" for="category">Category</label>
           <select class="form-input" id="category" required>
-            <option value="" disabled selected>Other</option>
+            <option value="" disabled selected>Select category</option>
             <option value="ai">AI</option>
             <option value="saas">SaaS</option>
             <option value="fintech">Fintech</option>
@@ -81,7 +87,6 @@
             <option value="other">Other</option>
           </select>
         </div>
-
         <div class="form-field">
           <div class="logo-label-row">
             <span class="form-label" style="margin-bottom:0">Logo</span>
@@ -98,32 +103,23 @@
             <input type="file" id="logo-input" accept="image/png,image/jpeg,image/webp" />
           </label>
         </div>
-
-        <!-- Payment section -->
         <div class="form-field">
-          <label class="form-label">Payment — scan & pay ₹149 via UPI</label>
+          <label class="form-label">Payment — scan &amp; pay ₹149 via UPI</label>
           <div class="payment-box">
             <div class="payment-amount">₹149 <sub>/mo</sub></div>
             <p class="payment-note">First 25 founders lock in this price forever</p>
             <div class="qr-box">
-              <!-- Replace assets/upi-qr.png with your actual UPI QR screenshot -->
               <img src="assets/upi-qr.png" alt="Scan to pay ₹149 via UPI"
-                   onerror="this.parentElement.innerHTML='<span style=&quot;font-size:12px;color:var(--muted);padding:8px;text-align:center&quot;>Add your QR as<br/>assets/upi-qr.png</span>'" />
+                   onerror="this.parentElement.innerHTML='<span style=\'font-size:12px;color:var(--muted);padding:8px;text-align:center\'>UPI QR<br/>assets/upi-qr.png</span>'" />
             </div>
-            <p class="qr-instructions">
-              Scan with GPay / PhonePe / Paytm → Pay ₹149 → paste your transaction ID below
-            </p>
+            <p class="qr-instructions">Scan with GPay / PhonePe / Paytm → Pay ₹149 → paste your transaction ID below</p>
           </div>
         </div>
-
         <div class="form-field">
           <label class="form-label" for="upi-txn">UPI Transaction ID</label>
           <input class="form-input" type="text" id="upi-txn" placeholder="e.g. 402110663798" required maxlength="30" />
         </div>
-
-        <button type="submit" class="btn btn-black btn-full" id="submit-btn">
-          Continue to payment ₹149/mo
-        </button>
+        <button type="submit" class="btn btn-black btn-full" id="submit-btn">Continue to payment ₹149/mo</button>
         <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px">
           By submitting you agree to our <a href="terms.html" style="color:var(--black)">terms</a>. Listings go live within 24 hours.
         </p>
@@ -134,7 +130,7 @@
 
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-left"><img src="logo.png" alt="" aria-hidden="true" /> © <span id="yr"></span> StartupOnX India</div>
+    <div class="footer-left"><img src="logo.png" alt="StartupOnX India logo" width="18" height="18" /> © <span id="yr"></span> StartupOnX India</div>
     <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
   </div>
 </footer>
@@ -163,12 +159,10 @@
     try { await signInWithGoogle(); } catch(e) { alert('Sign-in failed.'); }
   });
 
-  // Char count
   const descInput = document.getElementById('description');
   const descCount = document.getElementById('desc-count');
   descInput.addEventListener('input', () => { descCount.textContent = descInput.value.length + '/100'; });
 
-  // Logo filename
   document.getElementById('logo-input').addEventListener('change', function() {
     const f = this.files[0];
     if (f) {
@@ -177,35 +171,22 @@
     }
   });
 
-  // Form submit
   document.getElementById('submit-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('submit-btn');
     const user = currentUser();
     if (!user) { alert('Please sign in first.'); return; }
-
     const name = document.getElementById('company-name').value.trim();
     const desc = document.getElementById('description').value.trim();
     let website = document.getElementById('website').value.trim();
-if (!website.startsWith('http')) website = 'https://' + website;
+    if (!website.startsWith('http')) website = 'https://' + website;
     const category = document.getElementById('category').value;
     const txn = document.getElementById('upi-txn').value.trim();
-
-    if (!name || !desc || !website || !category || !txn) {
-      alert('Please fill in all fields.'); return;
-    }
-
+    if (!name || !desc || !website || !category || !txn) { alert('Please fill in all fields.'); return; }
     btn.textContent = 'Submitting...';
     btn.disabled = true;
-
     try {
-      await submitStartup({
-        uid: user.uid,
-        email: user.email,
-        name, desc, website, category,
-        upiTxnId: txn,
-        logoUrl: '' // Logo upload to Firebase Storage can be added later
-      });
+      await submitStartup({ uid: user.uid, email: user.email, name, desc, website, category, upiTxnId: txn, logoUrl: '' });
       document.getElementById('submit-form').style.display = 'none';
       document.getElementById('success-msg').style.display = 'block';
     } catch(err) {
