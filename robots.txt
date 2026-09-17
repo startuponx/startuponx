@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /my-listings.html
-Disallow: /signin.html
 
 User-agent: GPTBot
 Allow: /
