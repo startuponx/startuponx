@@ -55,24 +55,29 @@
     <div class="submit-wrap">
       <h1>Submit your startup</h1>
       <p class="sub">₹149/month to get listed. We review every submission before it goes live.</p>
+
       <div id="success-msg" style="display:none;background:var(--white);border-radius:12px;padding:24px;margin-bottom:24px;text-align:center;">
         <div style="font-size:28px;margin-bottom:8px">✅</div>
         <div style="font-weight:700;font-size:16px;margin-bottom:4px">Submission received</div>
         <div style="font-size:14px;color:var(--muted)">We'll verify your payment and go live within 24 hours. Check your email.</div>
       </div>
+
       <form id="submit-form" novalidate>
         <div class="form-field">
           <label class="form-label" for="company-name">Company name</label>
           <input class="form-input" type="text" id="company-name" placeholder="Acme" required maxlength="60" autocomplete="organization" />
         </div>
+
         <div class="form-field">
           <div class="form-label">One-line description <span class="char-count" id="desc-count">0/100</span></div>
           <input class="form-input" type="text" id="description" placeholder="The simplest way to do X" required maxlength="100" />
         </div>
+
         <div class="form-field">
           <label class="form-label" for="website">Website URL</label>
           <input class="form-input" type="url" id="website" placeholder="example.com" required />
         </div>
+
         <div class="form-field">
           <label class="form-label" for="category">Category</label>
           <select class="form-input" id="category" required>
@@ -87,6 +92,7 @@
             <option value="other">Other</option>
           </select>
         </div>
+
         <div class="form-field">
           <div class="logo-label-row">
             <span class="form-label" style="margin-bottom:0">Logo</span>
@@ -102,7 +108,13 @@
             </div>
             <input type="file" id="logo-input" accept="image/png,image/jpeg,image/webp" />
           </label>
+          <!-- Logo preview shown after file selected -->
+          <div id="logo-preview" style="display:none;margin-top:12px;display:flex;align-items:center;gap:10px">
+            <img id="logo-preview-img" src="" alt="Logo preview" style="width:52px;height:52px;border-radius:10px;object-fit:contain;border:1px solid var(--border);background:#f4f4f4;" />
+            <span id="logo-preview-name" style="font-size:13px;color:var(--muted)"></span>
+          </div>
         </div>
+
         <div class="form-field">
           <label class="form-label">Payment — scan &amp; pay ₹149 via UPI</label>
           <div class="payment-box">
@@ -115,11 +127,15 @@
             <p class="qr-instructions">Scan with GPay / PhonePe / Paytm → Pay ₹149 → paste your transaction ID below</p>
           </div>
         </div>
+
         <div class="form-field">
           <label class="form-label" for="upi-txn">UPI Transaction ID</label>
           <input class="form-input" type="text" id="upi-txn" placeholder="e.g. 402110663798" required maxlength="30" />
         </div>
-        <button type="submit" class="btn btn-black btn-full" id="submit-btn">Continue to payment ₹149/mo</button>
+
+        <button type="submit" class="btn btn-black btn-full" id="submit-btn">
+          Continue to payment ₹149/mo
+        </button>
         <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px">
           By submitting you agree to our <a href="terms.html" style="color:var(--black)">terms</a>. Listings go live within 24 hours.
         </p>
@@ -137,8 +153,14 @@
 
 <script type="module">
   import { onAuth, signInWithGoogle, signOutUser, submitStartup, currentUser } from './js/firebase.js';
+
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // ── Cloudinary config ─────────────────────────
+  const CLOUD_NAME    = 'i5znntso';          // your Cloudinary cloud name
+  const UPLOAD_PRESET = 'startuponx_logos';  // your unsigned upload preset
+
+  // ── Auth state ────────────────────────────────
   const authGate = document.getElementById('auth-gate');
   const formWrap = document.getElementById('form-wrap');
 
@@ -155,42 +177,101 @@
     }
   });
 
+  // ── Google sign in ────────────────────────────
   document.getElementById('google-btn')?.addEventListener('click', async () => {
     try { await signInWithGoogle(); } catch(e) { alert('Sign-in failed.'); }
   });
 
+  // ── Char count ────────────────────────────────
   const descInput = document.getElementById('description');
   const descCount = document.getElementById('desc-count');
-  descInput.addEventListener('input', () => { descCount.textContent = descInput.value.length + '/100'; });
-
-  document.getElementById('logo-input').addEventListener('change', function() {
-    const f = this.files[0];
-    if (f) {
-      if (f.size > 5*1024*1024) { alert('File too large. Max 5MB.'); this.value = ''; return; }
-      document.getElementById('logo-text').textContent = '✓ ' + f.name;
-    }
+  descInput.addEventListener('input', () => {
+    descCount.textContent = descInput.value.length + '/100';
   });
 
+  // ── Logo preview ──────────────────────────────
+  document.getElementById('logo-input').addEventListener('change', function() {
+    const f = this.files[0];
+    if (!f) return;
+    if (f.size > 5 * 1024 * 1024) {
+      alert('File too large. Max 5MB.');
+      this.value = '';
+      return;
+    }
+    // Show preview immediately
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      document.getElementById('logo-preview-img').src = e.target.result;
+      document.getElementById('logo-preview-name').textContent = '✓ ' + f.name;
+      document.getElementById('logo-preview').style.display = 'flex';
+      document.getElementById('logo-text').textContent = '✓ ' + f.name;
+    };
+    reader.readAsDataURL(f);
+  });
+
+  // ── Form submit ───────────────────────────────
   document.getElementById('submit-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = document.getElementById('submit-btn');
+    const btn  = document.getElementById('submit-btn');
     const user = currentUser();
     if (!user) { alert('Please sign in first.'); return; }
-    const name = document.getElementById('company-name').value.trim();
-    const desc = document.getElementById('description').value.trim();
-    let website = document.getElementById('website').value.trim();
+
+    const name     = document.getElementById('company-name').value.trim();
+    const desc     = document.getElementById('description').value.trim();
+    let   website  = document.getElementById('website').value.trim();
     if (!website.startsWith('http')) website = 'https://' + website;
     const category = document.getElementById('category').value;
-    const txn = document.getElementById('upi-txn').value.trim();
-    if (!name || !desc || !website || !category || !txn) { alert('Please fill in all fields.'); return; }
-    btn.textContent = 'Submitting...';
+    const txn      = document.getElementById('upi-txn').value.trim();
+    const logoFile = document.getElementById('logo-input').files[0];
+
+    if (!name || !desc || !website || !category || !txn) {
+      alert('Please fill in all fields.'); return;
+    }
+
+    btn.textContent = 'Uploading logo...';
     btn.disabled = true;
+
     try {
-      await submitStartup({ uid: user.uid, email: user.email, name, desc, website, category, upiTxnId: txn, logoUrl: '' });
+      // ── Upload logo to Cloudinary ─────────────
+      let logoUrl = '';
+      if (logoFile) {
+        const fd = new FormData();
+        fd.append('file', logoFile);
+        fd.append('upload_preset', UPLOAD_PRESET);
+        fd.append('folder', 'startuponx');      // organise in a folder
+        fd.append('public_id', user.uid + '_' + Date.now()); // unique filename
+
+        const res  = await fetch(
+          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+          { method: 'POST', body: fd }
+        );
+
+        if (!res.ok) throw new Error('Logo upload failed');
+        const data = await res.json();
+        logoUrl = data.secure_url; // e.g. https://res.cloudinary.com/i5znntso/image/upload/...
+      }
+
+      // ── Save to Firestore ─────────────────────
+      btn.textContent = 'Saving submission...';
+      await submitStartup({
+        uid:      user.uid,
+        email:    user.email,
+        name,
+        desc,
+        website,
+        category,
+        upiTxnId: txn,
+        logoUrl                  // real Cloudinary URL — shows on homepage card
+      });
+
+      // ── Success ───────────────────────────────
       document.getElementById('submit-form').style.display = 'none';
       document.getElementById('success-msg').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
     } catch(err) {
-      alert('Submission failed. Please try again.');
+      console.error(err);
+      alert('Submission failed: ' + err.message + '\n\nPlease try again.');
       btn.textContent = 'Continue to payment ₹149/mo';
       btn.disabled = false;
     }
